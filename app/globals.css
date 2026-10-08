@@ -1,0 +1,605 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 221 83% 53%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222.2 84% 4.9%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 45%;
+    --accent: 210 40% 96%;
+    --accent-foreground: 222.2 84% 4.9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214 25% 88%;
+    --input: 214 25% 88%;
+    --ring: 221 83% 53%;
+    --radius: 0.75rem;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+  }
+
+  .dark {
+    --background: 223 50% 5.3%; /* #070B14 */
+    --foreground: 210 40% 98%; /* #F8FAFC */
+    --card: 224 40% 14%; /* #151D32 */
+    --card-foreground: 210 40% 98%;
+    --popover: 224 40% 14%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 199 94% 60%; /* #38BDF8 */
+    --primary-foreground: 223 50% 5.3%;
+    --secondary: 222 38% 11%; /* #111827 */
+    --secondary-foreground: 210 40% 98%;
+    --muted: 222 38% 11%;
+    --muted-foreground: 215 20% 65%; /* #94A3B8 */
+    --accent: 258 90% 66%; /* #8B5CF6 */
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 219 32% 22%; /* #26324A */
+    --input: 219 32% 22%;
+    --ring: 199 94% 60%;
+    --chart-1: 199 94% 60%; /* Cyan / Electric blue */
+    --chart-2: 258 90% 66%; /* Violet */
+    --chart-3: 160 84% 57%; /* Emerald */
+    --chart-4: 43 96% 56%;  /* Amber */
+    --chart-5: 280 87% 65%; /* Purple */
+  }
+}
+
+.aurora-text-gradient {
+  background: linear-gradient(135deg, #38BDF8 0%, #8B5CF6 50%, #C084FC 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.aurora-card-glow {
+  position: relative;
+  border: 1px solid rgba(38, 50, 74, 0.8);
+  background: linear-gradient(145deg, rgba(21, 29, 50, 0.75) 0%, rgba(11, 16, 32, 0.85) 100%);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.aurora-card-glow:hover {
+  border-color: rgba(56, 189, 248, 0.45);
+  box-shadow: 0 12px 35px -5px rgba(56, 189, 248, 0.15), 0 0 25px -5px rgba(139, 92, 246, 0.15);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground transition-colors duration-300;
+    position: relative;
+    overflow-x: hidden;
+    letter-spacing: -0.01em;
+  }
+}
+
+/* ===== CUSTOM SCROLLBAR ===== */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--background));
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--muted-foreground) / 0.25);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--muted-foreground) / 0.45);
+}
+
+/* Prevent horizontal scroll */
+html,
+body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Ensure images don't cause overflow */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Fix any flex container overflow */
+.flex {
+  min-width: 0;
+}
+
+/* Ensure text doesn't cause overflow */
+.line-clamp-2 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  word-wrap: break-word;
+}
+
+/* Custom slider styles for sound control */
+.slider {
+  background: linear-gradient(
+    to right,
+    hsl(var(--primary)) 0%,
+    hsl(var(--primary)) var(--value, 40%),
+    hsl(var(--muted)) var(--value, 40%),
+    hsl(var(--muted)) 100%
+  );
+}
+
+.slider::-webkit-slider-thumb {
+  appearance: none;
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  background: hsl(var(--primary));
+  cursor: pointer;
+  border: 2px solid hsl(var(--background));
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.slider::-moz-range-thumb {
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  background: hsl(var(--primary));
+  cursor: pointer;
+  border: 2px solid hsl(var(--background));
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Light mode styling with better text visibility */
+:root:not(.dark) body {
+  background: hsl(var(--background));
+  min-height: 100vh;
+}
+
+:root:not(.dark) body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 15% 10%, hsl(var(--primary) / 0.08), transparent 28%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Enhanced card styling for light mode with better text visibility */
+:root:not(.dark) .bg-card {
+  @apply bg-white/95 backdrop-blur-sm border-white/30 shadow-xl;
+  color: #1a202c;
+}
+
+:root:not(.dark) .bg-muted {
+  @apply bg-white/80 backdrop-blur-sm;
+  color: #2d3748;
+}
+
+/* Better text colors for light mode */
+:root:not(.dark) {
+  --foreground: 210 40% 8%;
+  --card-foreground: 210 40% 8%;
+  --popover-foreground: 210 40% 8%;
+  --muted-foreground: 215.4 16.3% 25%;
+  --accent-foreground: 210 40% 8%;
+}
+
+/* Enhanced navigation for light mode with better visibility */
+:root:not(.dark) nav {
+  @apply bg-white/20 backdrop-blur-md border-white/30;
+  color: #1a202c;
+}
+
+:root:not(.dark) nav .text-muted-foreground {
+  color: #4a5568 !important;
+}
+
+:root:not(.dark) nav .text-primary {
+  color: #553c9a !important;
+}
+
+/* Beautiful footer for light mode with better text */
+:root:not(.dark) footer {
+  @apply bg-white/15 backdrop-blur-md border-white/30;
+  color: #1a202c;
+}
+
+:root:not(.dark) footer .text-muted-foreground {
+  color: #4a5568 !important;
+}
+
+/* Better text visibility for all content in light mode */
+:root:not(.dark) .text-muted-foreground {
+  color: #4a5568 !important;
+}
+
+:root:not(.dark) .text-foreground {
+  color: #1a202c !important;
+}
+
+:root:not(.dark) h1,
+:root:not(.dark) h2,
+:root:not(.dark) h3,
+:root:not(.dark) h4,
+:root:not(.dark) h5,
+:root:not(.dark) h6 {
+  color: #1a202c !important;
+}
+
+:root:not(.dark) p {
+  color: #2d3748 !important;
+}
+
+/* Enhanced button styling for light mode */
+:root:not(.dark) .bg-primary {
+  background: linear-gradient(135deg, #553c9a 0%, #6b46c1 100%);
+  @apply shadow-lg hover:shadow-xl transition-all duration-300;
+  color: white !important;
+}
+
+:root:not(.dark) .bg-primary:hover {
+  background: linear-gradient(135deg, #4c1d95 0%, #5b21b6 100%);
+  transform: translateY(-1px);
+}
+
+/* Better outline buttons for light mode */
+:root:not(.dark) .border {
+  border-color: rgba(255, 255, 255, 0.4) !important;
+}
+
+:root:not(.dark) .bg-transparent {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  color: #1a202c !important;
+  border-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+:root:not(.dark) .bg-transparent:hover {
+  background-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+/* Better badge colors for light mode */
+:root:not(.dark) .bg-primary\/10 {
+  background-color: rgba(139, 92, 246, 0.15) !important;
+  color: #553c9a !important;
+}
+
+:root:not(.dark) .text-primary {
+  color: #553c9a !important;
+}
+
+/* Enhanced form elements for light mode */
+:root:not(.dark) input,
+:root:not(.dark) textarea {
+  background-color: rgba(255, 255, 255, 0.9) !important;
+  color: #1a202c !important;
+  border-color: rgba(255, 255, 255, 0.4) !important;
+}
+
+:root:not(.dark) input::placeholder,
+:root:not(.dark) textarea::placeholder {
+  color: #718096 !important;
+}
+
+/* Better link colors */
+:root:not(.dark) a {
+  color: #553c9a !important;
+}
+
+:root:not(.dark) a:hover {
+  color: #4c1d95 !important;
+}
+
+/* Dark mode styling */
+.dark body {
+  background: hsl(var(--background));
+}
+
+/* Beautiful gradient text for light mode */
+:root:not(.dark) .bg-gradient-to-r {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+  color-scheme: light;
+}
+
+html.dark {
+  color-scheme: dark;
+}
+
+/* Custom animations */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Gradient text animation */
+@keyframes gradient {
+  0%,
+  100% {
+    background-size: 200% 200%;
+    background-position: left center;
+  }
+  50% {
+    background-size: 200% 200%;
+    background-position: right center;
+  }
+}
+
+.animate-gradient {
+  animation: gradient 3s ease infinite;
+}
+
+/* Background grid pattern */
+.bg-grid-pattern {
+  background-image: linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* Enhanced transitions */
+* {
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+}
+
+/* Enhanced focus states */
+*:focus-visible {
+  @apply ring-2 ring-primary ring-offset-2 ring-offset-background outline-none;
+}
+
+/* Light mode specific enhancements */
+:root:not(.dark) *:focus-visible {
+  @apply ring-2 ring-purple-500 ring-offset-2 ring-offset-white/80;
+}
+
+/* ===== DOT ANIMATIONS - SMALLER DOTS ===== */
+
+/* Light Mode Dot Animation - Smaller dots */
+:root:not(.dark) body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: radial-gradient(1px 1px at 20px 30px, rgba(255, 255, 255, 0.4), transparent),
+    radial-gradient(1px 1px at 40px 70px, rgba(139, 92, 246, 0.3), transparent),
+    radial-gradient(1px 1px at 90px 40px, rgba(255, 119, 198, 0.3), transparent),
+    radial-gradient(1px 1px at 130px 80px, rgba(120, 219, 255, 0.3), transparent),
+    radial-gradient(0.5px 0.5px at 160px 30px, rgba(255, 255, 255, 0.5), transparent),
+    radial-gradient(0.5px 0.5px at 200px 60px, rgba(139, 92, 246, 0.2), transparent),
+    radial-gradient(1px 1px at 240px 90px, rgba(255, 119, 198, 0.3), transparent),
+    radial-gradient(1px 1px at 280px 20px, rgba(120, 219, 255, 0.3), transparent);
+  background-repeat: repeat;
+  background-size: 300px 300px;
+  animation: light-dots-float 25s linear infinite;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Dark Mode Dot Animation - Smaller dots */
+.dark body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: radial-gradient(1px 1px at 25px 35px, rgba(139, 92, 246, 0.6), transparent),
+    radial-gradient(0.5px 0.5px at 50px 75px, rgba(59, 130, 246, 0.4), transparent),
+    radial-gradient(1px 1px at 95px 45px, rgba(16, 185, 129, 0.3), transparent),
+    radial-gradient(1px 1px at 135px 85px, rgba(245, 101, 101, 0.4), transparent),
+    radial-gradient(0.5px 0.5px at 165px 35px, rgba(139, 92, 246, 0.5), transparent),
+    radial-gradient(1px 1px at 205px 65px, rgba(59, 130, 246, 0.4), transparent),
+    radial-gradient(0.5px 0.5px at 245px 95px, rgba(16, 185, 129, 0.4), transparent),
+    radial-gradient(1px 1px at 285px 25px, rgba(245, 101, 101, 0.3), transparent),
+    radial-gradient(0.5px 0.5px at 15px 65px, rgba(168, 85, 247, 0.4), transparent),
+    radial-gradient(1px 1px at 75px 15px, rgba(34, 197, 94, 0.3), transparent);
+  background-repeat: repeat;
+  background-size: 320px 320px;
+  animation: dark-dots-float 30s linear infinite;
+  pointer-events: none;
+  z-index: -1;
+}
+
+@keyframes light-dots-float {
+  0% {
+    transform: translateY(0px) translateX(0px) rotate(0deg);
+    opacity: 1;
+  }
+  33% {
+    transform: translateY(-50px) translateX(30px) rotate(120deg);
+    opacity: 0.8;
+  }
+  66% {
+    transform: translateY(50px) translateX(-30px) rotate(240deg);
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateY(0px) translateX(0px) rotate(360deg);
+    opacity: 1;
+  }
+}
+
+@keyframes dark-dots-float {
+  0% {
+    transform: translateY(0px) translateX(0px) rotate(0deg);
+    opacity: 0.8;
+  }
+  25% {
+    transform: translateY(-40px) translateX(20px) rotate(90deg);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(0px) translateX(40px) rotate(180deg);
+    opacity: 0.6;
+  }
+  75% {
+    transform: translateY(40px) translateX(-20px) rotate(270deg);
+    opacity: 0.9;
+  }
+  100% {
+    transform: translateY(0px) translateX(0px) rotate(360deg);
+    opacity: 0.8;
+  }
+}
+
+/* Dot animation container */
+.dot-animation {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  overflow: hidden;
+}
+
+/* Light mode additional dots - Smaller */
+:root:not(.dark) .dot-animation::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background-image: radial-gradient(0.5px 0.5px at 10% 20%, rgba(255, 255, 255, 0.3), transparent),
+    radial-gradient(1px 1px at 30% 80%, rgba(139, 92, 246, 0.2), transparent),
+    radial-gradient(0.5px 0.5px at 60% 40%, rgba(255, 119, 198, 0.3), transparent),
+    radial-gradient(1px 1px at 80% 70%, rgba(120, 219, 255, 0.2), transparent),
+    radial-gradient(0.5px 0.5px at 90% 10%, rgba(255, 255, 255, 0.4), transparent);
+  animation: light-secondary-dots 20s ease-in-out infinite reverse;
+}
+
+@keyframes light-secondary-dots {
+  0%,
+  100% {
+    transform: translateY(0px) scale(1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: translateY(-30px) scale(1.1);
+    opacity: 1;
+  }
+}
+
+/* Dark mode additional dots - Smaller */
+.dark .dot-animation::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background-image: radial-gradient(0.5px 0.5px at 15% 25%, rgba(139, 92, 246, 0.4), transparent),
+    radial-gradient(1px 1px at 35% 85%, rgba(59, 130, 246, 0.3), transparent),
+    radial-gradient(0.5px 0.5px at 65% 45%, rgba(16, 185, 129, 0.4), transparent),
+    radial-gradient(1px 1px at 85% 75%, rgba(245, 101, 101, 0.3), transparent),
+    radial-gradient(0.5px 0.5px at 95% 15%, rgba(168, 85, 247, 0.4), transparent),
+    radial-gradient(1px 1px at 5% 55%, rgba(34, 197, 94, 0.2), transparent);
+  animation: dark-secondary-dots 25s ease-in-out infinite;
+}
+
+@keyframes dark-secondary-dots {
+  0%,
+  100% {
+    transform: translateX(0px) scale(1) rotate(0deg);
+    opacity: 0.7;
+  }
+  33% {
+    transform: translateX(20px) scale(0.8) rotate(120deg);
+    opacity: 0.9;
+  }
+  66% {
+    transform: translateX(-20px) scale(1.2) rotate(240deg);
+    opacity: 0.5;
+  }
+}
+
+/* Pulsing dots for extra effect */
+@keyframes pulse-dot {
+  0%,
+  100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.2);
+  }
+}
+
+/* Light mode pulsing dots - Smaller */
+:root:not(.dark) .dot-animation::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background-image: radial-gradient(1px 1px at 25% 15%, rgba(255, 255, 255, 0.2), transparent),
+    radial-gradient(1px 1px at 75% 85%, rgba(139, 92, 246, 0.3), transparent),
+    radial-gradient(0.5px 0.5px at 45% 55%, rgba(255, 119, 198, 0.2), transparent);
+  animation: pulse-dot 8s ease-in-out infinite;
+}
+
+/* Dark mode pulsing dots - Smaller */
+.dark .dot-animation::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background-image: radial-gradient(1px 1px at 20% 20%, rgba(139, 92, 246, 0.4), transparent),
+    radial-gradient(1px 1px at 70% 80%, rgba(59, 130, 246, 0.3), transparent),
+    radial-gradient(0.5px 0.5px at 50% 50%, rgba(16, 185, 129, 0.4), transparent),
+    radial-gradient(1px 1px at 90% 30%, rgba(245, 101, 101, 0.3), transparent);
+  animation: pulse-dot 10s ease-in-out infinite reverse;
+}
+
+/* Cursor interaction effects */
+.cursor-magnetic {
+  transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.cursor-magnetic:hover {
+  transform: scale(1.05);
+}
