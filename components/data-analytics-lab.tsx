@@ -452,7 +452,7 @@ export function DataAnalyticsLab({ isEmbedded = false }: { isEmbedded?: boolean 
                           backdropFilter: "blur(12px)",
                         }}
                         formatter={(val: any, name: any) => [
-                          `$${Number(val).toLocaleString()}`,
+                          `$${Number(val).toLocaleString("en-US")}`,
                           name === "revenue" ? "Actual Revenue" : "Target Baseline",
                         ]}
                       />
@@ -494,7 +494,7 @@ export function DataAnalyticsLab({ isEmbedded = false }: { isEmbedded?: boolean 
                           color: "#E0F2FE",
                           backdropFilter: "blur(12px)",
                         }}
-                        formatter={(val: any) => [`+$${Number(val).toLocaleString()}`, "Surplus Over Target"]}
+                        formatter={(val: any) => [`+$${Number(val).toLocaleString("en-US")}`, "Surplus Over Target"]}
                       />
                       <Bar dataKey="variance" fill="#22D3EE" radius={[6, 6, 0, 0]} />
                     </BarChart>
@@ -505,17 +505,17 @@ export function DataAnalyticsLab({ isEmbedded = false }: { isEmbedded?: boolean 
               {/* Chart Footer Indicator */}
               <div className="flex flex-wrap items-center justify-between text-xs text-[#94A3B8] border-t border-white/10 pt-3 font-mono">
                 <div className="flex items-center gap-4">
-                  <span className="flex items-center gap-1.5">
+                  <span className="flex items-center gap-1.5" suppressHydrationWarning>
                     <span className="w-2.5 h-2.5 rounded-full bg-cyan-400" />
-                    Actual Revenue: ${totalRevenue.toLocaleString()}
+                    Actual Revenue: ${totalRevenue.toLocaleString("en-US")}
                   </span>
-                  <span className="flex items-center gap-1.5">
+                  <span className="flex items-center gap-1.5" suppressHydrationWarning>
                     <span className="w-2.5 h-0.5 bg-sky-400" />
-                    Target Baseline: ${totalTarget.toLocaleString()}
+                    Target Baseline: ${totalTarget.toLocaleString("en-US")}
                   </span>
                 </div>
-                <span className="text-emerald-400 font-bold">
-                  Period Delta: +${totalVariance.toLocaleString()} (+{((totalVariance / totalTarget) * 100).toFixed(1)}%)
+                <span className="text-emerald-400 font-bold" suppressHydrationWarning>
+                  Period Delta: +${totalVariance.toLocaleString("en-US")} (+{((totalVariance / totalTarget) * 100).toFixed(1)}%)
                 </span>
               </div>
             </div>
@@ -552,7 +552,7 @@ export function DataAnalyticsLab({ isEmbedded = false }: { isEmbedded?: boolean 
                           color: "#E0F2FE",
                           backdropFilter: "blur(12px)",
                         }}
-                        formatter={(val: any) => [`${Number(val).toLocaleString()} sessions`, "Traffic Volume"]}
+                        formatter={(val: any) => [`${Number(val).toLocaleString("en-US")} sessions`, "Traffic Volume"]}
                       />
                       <Bar dataKey="visitors" fill="#22D3EE" radius={[0, 6, 6, 0]}>
                         {channelData.map((entry, index) => (

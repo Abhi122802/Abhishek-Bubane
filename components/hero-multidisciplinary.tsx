@@ -201,15 +201,18 @@ function WebGLHeroCanvas() {
 
     // Animation Loop
     let animationFrameId: number
-    let clock = new THREE.Clock()
+    const startTime = performance.now()
+    let previousTime = startTime
 
     const animate = () => {
       animationFrameId = requestAnimationFrame(animate)
 
       if (!isVisibleRef.current) return
 
-      const delta = clock.getDelta()
-      const elapsedTime = clock.getElapsedTime()
+      const now = performance.now()
+      const delta = Math.min((now - previousTime) / 1000, 0.1)
+      previousTime = now
+      const elapsedTime = (now - startTime) / 1000
 
       if (!prefersReducedMotion) {
         // Continuous organic rotation
