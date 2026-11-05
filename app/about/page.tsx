@@ -1,491 +1,455 @@
 "use client"
 
+import React from "react"
 import { motion } from "framer-motion"
-import { Card, CardContent } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { Calendar, MapPin, Award, Users, Code, Palette, GraduationCap } from "lucide-react"
 import Image from "next/image"
+import Link from "next/link"
+import {
+  MapPin,
+  Calendar,
+  Award,
+  GraduationCap,
+  Briefcase,
+  ChevronRight,
+  ExternalLink,
+  Sparkles,
+  ArrowRight,
+  ShieldCheck,
+  CheckCircle2,
+  Code2,
+  Database,
+  BrainCircuit,
+  Compass,
+  Layers,
+  Mail
+} from "lucide-react"
+import { Button } from "@/components/ui/button"
+import { Badge } from "@/components/ui/badge"
 
 export default function AboutPage() {
-  /* -------------------------------------------------- */
-  /*                     DATA                           */
-  /* -------------------------------------------------- */
-  const experiences = [
+  const careerPillars = [
     {
       title: "Data Analyst",
-      company: "DJRB SERVICES, Pune, India",
+      badge: "Analytics & BI",
+      icon: Database,
+      desc: "SQL data modeling, automated ETL pipelines, cohort retention decay matrices, and executive intelligence dashboards driving operational revenue.",
+      accent: "border-cyan-400/30 text-cyan-300",
+    },
+    {
+      title: "Data Engineer",
+      badge: "Pipelines & Warehousing",
+      icon: Layers,
+      desc: "Star-schema dimensional modeling, point-in-time feature extraction DAGs in Airflow, automated data validation rules, and PostgreSQL infrastructure.",
+      accent: "border-teal-400/30 text-teal-300",
+    },
+    {
+      title: "Full-Stack Developer",
+      badge: "Modern Web & APIs",
+      icon: Code2,
+      desc: "Production Next.js, React 19, TypeScript, Node.js/Express REST APIs, MongoDB, Razorpay payment integrations, and hardware node-locked licensing.",
+      accent: "border-indigo-400/30 text-indigo-300",
+    },
+    {
+      title: "AI Engineer",
+      badge: "Predictive Intelligence",
+      icon: BrainCircuit,
+      desc: "XGBoost customer churn models, TreeSHAP feature attributions, FastAPI low-latency inference services, and client-side behavioral tuning simulators.",
+      accent: "border-purple-400/30 text-purple-300",
+    },
+  ]
+
+  const careerMilestones = [
+    {
+      role: "Data Analyst",
+      organization: "DJRB SERVICES",
       period: "Dec 2025 – Present",
-      description:
-        "Leading data operations, SQL data modeling, and executive intelligence dashboards for the STR Analytics Platform. Developed automated loan file auditing logic and React screen for Mortgage Loan Appraisal Report Verification Software.",
-      projects: [
-        {
-          name: "STR Analytics Platform",
-          points: [
-            "Handled step-by-step data work including collecting raw details, cleaning datasets, structuring database models, and generating business performance reports.",
-            "Wrote clean, optimized SQL scripts to join, aggregate, and prepare raw operational data for reporting.",
-            "Set up data validation rules to find missing values, wrong formatting, and rule violations across database records.",
-            "Built executive dashboard views to highlight key business metrics and trend insights for decision-makers."
-          ]
-        },
-        {
-          name: "Mortgage Loan Appraisal Report Verification Software (QA-Pramaan)",
-          points: [
-            "Built automated rule-checking logic using Python, Django, SQL, and React to verify mortgage loan files.",
-            "Created validation logic to catch missing attributes, mismatched values, and compliance issues across loan entries.",
-            "Connected backend API checking logic to a React user screen for simple, rapid loan auditing (qa-pramaan.vercel.app)."
-          ]
-        }
-      ]
+      location: "Pune, India",
+      desc: "Leading SQL modeling and operational analytics for STR Analytics Platform. Built compliance rule-checking logic and React audit screens for mortgage verification software (QA-Pramaan).",
+      pillar: "Data Analyst",
+      tech: ["SQL", "PostgreSQL", "Python", "Django", "React", "ETL"],
     },
     {
-      title: "Freelance Web & Application Developer",
-      company: "Elevate Technologies, Pune",
+      role: "Freelance Web & Application Developer",
+      organization: "Elevate Technologies",
       period: "2025 – Present",
-      description:
-        "Architecting and delivering the core E-Commerce & SaaS Licensing Platform for Elevate Technologies (elevatetechnologies.in) with automated licensing keys, Razorpay checkout, and compliance logic.",
-      points: [
-        "Built an e-commerce platform with automated hardware node-locked licensing keys, Razorpay payments, real-time stock updates, and automated tax (CGST/SGST) ledger logic.",
-        "Created an interactive ROI calculator tool in React and secured backend routes using JWT auth, CORS whitelisting, and system audit logging (AuditLog).",
-        "Engineered responsive React 19 storefront with Redux Toolkit state management and Node/Express RESTful APIs."
-      ]
+      location: "Pune, India",
+      desc: "Architected the commercial e-commerce & SaaS licensing platform (elevatetechnologies.in) with automated hardware node-locked keys, Razorpay checkout, and CGST/SGST tax ledgers.",
+      pillar: "Full-Stack Developer",
+      tech: ["React 19", "Node.js", "Express", "MongoDB", "Redux Toolkit", "Razorpay"],
     },
     {
-      title: "Data Analyst Intern",
-      company: "DJRB SERVICES, Pune, India",
+      role: "Data Analyst Intern",
+      organization: "DJRB SERVICES",
       period: "Jun 2025 – Nov 2025",
-      description:
-        "Cleaned, normalized, and transformed raw data before importing it into PostgreSQL databases. Wrote PostgreSQL queries to build datasets for weekly and monthly business analytics reports.",
-      points: [
-        "Cleaned, normalized, and transformed raw data before importing it into PostgreSQL databases.",
-        "Wrote PostgreSQL queries to build datasets for weekly and monthly business analytics reports."
-      ]
+      location: "Pune, India",
+      desc: "Prepared and normalized raw operational service records for production PostgreSQL databases, writing analytical queries for weekly executive reports.",
+      pillar: "Data Analyst",
+      tech: ["PostgreSQL", "SQL Queries", "Data Cleaning", "Normalization"],
     },
     {
-      title: "Web Developer",
-      company: "MASS IT, India",
+      role: "Web Developer",
+      organization: "MASS IT",
       period: "Jan 2025 – Apr 2025",
-      description:
-        "Assisted with application database connection, user input validation, and backend service fixes.",
-      points: [
-        "Assisted with application database connection, user input validation, and backend service fixes."
-      ]
+      location: "India",
+      desc: "Engineered web application backend service connections, integrated database models, implemented input validation logic, and resolved production bugs.",
+      pillar: "Full-Stack Developer",
+      tech: ["Web Development", "Node.js", "REST APIs", "Validation"],
     },
     {
-      title: "Android Sensor-Data App",
-      company: "Sathe Engineering, Solapur",
+      role: "Sensor Data & Telemetry Systems Engineer",
+      organization: "Sathe Engineering",
       period: "Jan 2024 – Mar 2024",
-      description:
-        "Created an Android app that captures real-time sensor data (temperature, humidity, motion) for smart monitoring.",
-    },
-    {
-      title: "Salesforce PD-I Certified",
-      company: "Salesforce Trailhead",
-      period: "2024",
-      description:
-        "Built custom Lightning components and Apex automations while earning the Platform Developer I credential.",
+      location: "Solapur, India",
+      desc: "Built an industrial Android sensor monitoring client capturing temperature, humidity, and vibration telematics with offline SQLite caching and cloud anomaly alerts.",
+      pillar: "Data Engineer",
+      tech: ["Android", "Java", "SQLite", "IoT Protocols", "REST"],
     },
   ]
 
-  const education = [
+  const credentials = [
     {
-      degree: "B.Tech in Electronics & Computer Engineering",
-      institution: "Walchand Institute of Technology, Solapur",
+      title: "B.Tech in Electronics & Computer Engineering",
+      issuer: "Walchand Institute of Technology, Solapur",
       period: "2021 – 2025",
-      score: "CGPA: 8.5 / 10.0",
-      description:
-        "Graduated with distinction. Comprehensive coursework covering electronics, computer architectures, data structures, algorithms, databases, and software engineering. Capstone work in real-time sensor analytics.",
+      badge: "Degree with Distinction (CGPA: 8.5 / 10.0)",
+      type: "education",
     },
     {
-      degree: "HSC – Science Stream",
-      institution: "Chhatrapati Shivaji Maharaj High School, Dharashiv",
-      period: "2019 – 2021",
-      score: "88.83%",
-      description:
-        "Higher secondary education with strong emphasis on physics, chemistry, mathematics, and analytical problem solving.",
+      title: "Salesforce Certified Platform Developer I (PD-I)",
+      issuer: "Salesforce",
+      period: "2024",
+      badge: "Credential ID: SF-PDI-2984104",
+      type: "certification",
     },
     {
-      degree: "SSC – Semi-English Medium",
-      institution: "Chhatrapati Shivaji Maharaj High School, Dharashiv",
-      period: "2018 – 2019",
-      score: "71.20%",
-      description:
-        "Secondary school certificate with solid fundamentals across mathematics, sciences, and English language communication.",
+      title: "AWS Cloud Foundations & Distributed Systems",
+      issuer: "AWS Academy / Cloud Foundations",
+      period: "2023",
+      badge: "Credential ID: AWS-CF-882039",
+      type: "certification",
+    },
+    {
+      title: "Applied Data Science & Machine Learning",
+      issuer: "Cognitive AI Lab",
+      period: "2024",
+      badge: "Credential ID: ML-PY-910283",
+      type: "certification",
+    },
+    {
+      title: "Trailhead Ranger Milestone (100+ Badges, 55k+ Points)",
+      issuer: "Salesforce Trailhead",
+      period: "2024",
+      badge: "Platform Learning Milestone • Not Certification",
+      type: "milestone",
     },
   ]
 
-  const skills = [
-    { category: "Frontend", items: ["React", "JavaScript", "HTML5", "CSS3", "Tailwind CSS", "Bootstrap"] },
-    { category: "Backend", items: ["Python", "Django", "SQL", "PostgreSQL", "Node.js", "Express.js", "MongoDB", "MySQL", "REST APIs"] },
-    { category: "Salesforce", items: ["Apex", "Lightning Web Cmp", "SOQL", "Salesforce APIs", "Process Builder"] },
-    { category: "UI/UX", items: ["Figma", "Adobe XD", "Wireframing", "Prototyping", "User Research"] },
-    { category: "Tools", items: ["Git", "VS Code", "Postman", "Salesforce DX", "Trailhead"] },
-  ]
-
-  const certificationBadges = [
-    {
-      name: "Salesforce PD-I",
-      icon: "☁️",
-      color: "bg-blue-500/10 text-blue-600 border-blue-200",
-      description: "Platform Developer I",
-    },
-    {
-      name: "Cloud Computing",
-      icon: "🌩️",
-      color: "bg-purple-500/10 text-purple-600 border-purple-200",
-      description: "AWS & Azure",
-    },
-    {
-      name: "Lightning Expert",
-      icon: "⚡",
-      color: "bg-yellow-500/10 text-yellow-600 border-yellow-200",
-      description: "Lightning Components",
-    },
-    {
-      name: "Trailhead Ranger",
-      icon: "🏆",
-      color: "bg-green-500/10 text-green-600 border-green-200",
-      description: "100+ Badges",
-    },
-  ]
-
-  /* -------------------------------------------------- */
-  /*                   RENDER                           */
-  /* -------------------------------------------------- */
   return (
-    <div className="min-h-screen py-20 px-4">
-      <div className="container mx-auto max-w-6xl">
-        {/* ----------  HEADER  ---------- */}
-        <motion.header
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="text-center space-y-6 mb-16"
-        >
-          <h1 className="text-4xl md:text-5xl font-bold">About Me</h1>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            I'm Abhishek Bubane – a fresher passionate about Full-Stack Development, UI/UX Design, and the Salesforce
-            platform. Open to work and excited to contribute to innovative projects.
-          </p>
-        </motion.header>
-
-        <div className="grid lg:grid-cols-3 gap-12">
-          {/* ----------  LEFT COLUMN  ---------- */}
-          <motion.section
-            initial={{ opacity: 0, x: -30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="space-y-8"
-          >
-            {/* Profile card */}
-            <Card>
-              <CardContent className="p-6">
-                <div className="relative w-32 h-32 mx-auto mb-6">
+    <div className="min-h-screen pt-28 pb-20 px-4 sm:px-6 lg:px-8 bg-[#070B14] text-[#F8FAFC]">
+      <div className="max-w-6xl mx-auto space-y-24">
+        {/* 1. PROFESSIONAL INTRODUCTION */}
+        <section className="relative">
+          <div className="grid md:grid-cols-12 gap-8 items-center">
+            {/* Portrait & Core Identity */}
+            <div className="md:col-span-5 flex flex-col items-center md:items-start text-center md:text-left">
+              <div className="relative w-48 h-48 sm:w-56 sm:h-56 mb-6 rounded-3xl overflow-hidden p-1.5 bg-gradient-to-tr from-cyan-400 via-indigo-500 to-purple-500 shadow-2xl">
+                <div className="relative w-full h-full rounded-2xl overflow-hidden bg-[#070B14]">
                   <Image
                     src="/profile.jpg"
-                    alt="Abhishek Bubane portrait"
+                    alt="Abhishek Balasaheb Bubane Portrait"
                     fill
-                    className="rounded-full object-cover object-[50%_12%]"
+                    priority
+                    className="object-cover object-[50%_15%]"
                   />
                 </div>
-                <div className="text-center space-y-4">
-                  <h3 className="text-xl font-semibold">Abhishek Balasaheb Bubane</h3>
-                  <div className="space-y-2 text-sm text-muted-foreground">
-                    <div className="flex items-center justify-center gap-2">
-                      <MapPin className="h-4 w-4" /> Maharashtra, India
+              </div>
+
+              <h1 className="text-3xl sm:text-4xl font-extrabold text-[#E0F2FE] tracking-tight mb-2">
+                Abhishek Balasaheb Bubane
+              </h1>
+
+              <div className="flex flex-wrap items-center justify-center md:justify-start gap-2 text-xs text-[#94A3B8] font-mono mb-4">
+                <span className="flex items-center gap-1">
+                  <MapPin className="w-3.5 h-3.5 text-cyan-400" /> Maharashtra, India
+                </span>
+                <span>•</span>
+                <span className="flex items-center gap-1">
+                  <GraduationCap className="w-3.5 h-3.5 text-sky-400" /> B.Tech (Electronics & CSE)
+                </span>
+              </div>
+
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 text-xs font-semibold">
+                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                Available for Engineering Roles & Impact Projects
+              </div>
+            </div>
+
+            {/* Narrative Story */}
+            <div className="md:col-span-7 space-y-6">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-400/20 text-cyan-400 text-xs font-semibold tracking-wider uppercase backdrop-blur-md">
+                <Sparkles className="w-3.5 h-3.5" /> Professional Biography
+              </div>
+
+              <h2 className="text-2xl sm:text-3xl font-extrabold text-[#E0F2FE] leading-snug">
+                Bridging analytical mathematical rigor, robust software engineering, and human-centered design.
+              </h2>
+
+              <p className="text-sm sm:text-base text-[#94A3B8] leading-relaxed font-light">
+                I am an engineer with foundational depth across analytical data modeling, full-stack software systems, and predictive machine learning. Graduating with distinction in Electronics & Computer Engineering from Walchand Institute of Technology (CGPA 8.5/10.0), I build systems where data integrity and user experience are equally prioritized.
+              </p>
+
+              <p className="text-sm sm:text-base text-[#94A3B8] leading-relaxed font-light">
+                From authoring high-throughput SQL validation rules at DJRB Services to delivering commercial software licensing storefronts with hardware node-locked encryption at Elevate Technologies, my focus remains on building reliable, verifiable software that drives measurable business outcomes.
+              </p>
+
+              <div className="pt-2 flex flex-wrap gap-3">
+                <Button
+                  asChild
+                  className="bg-gradient-to-r from-cyan-400 via-sky-400 to-indigo-500 text-slate-950 font-bold text-xs rounded-xl shadow-md shadow-cyan-500/20"
+                >
+                  <Link href="/projects">
+                    Explore Flagship Case Studies
+                    <ArrowRight className="w-3.5 h-3.5 ml-1.5" />
+                  </Link>
+                </Button>
+
+                <Button
+                  asChild
+                  variant="outline"
+                  className="border-white/10 bg-[#111B30]/75 text-[#E0F2FE] hover:bg-[#15223E] text-xs rounded-xl"
+                >
+                  <Link href="/contact">
+                    <Mail className="w-3.5 h-3.5 mr-1.5" />
+                    Get in Touch
+                  </Link>
+                </Button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* 2. FOUR-PILLAR CAREER POSITIONING */}
+        <section className="space-y-8">
+          <div className="text-center max-w-2xl mx-auto space-y-3">
+            <div className="text-xs font-mono font-bold text-cyan-400 uppercase tracking-wider">
+              Core Capabilities
+            </div>
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-[#E0F2FE]">
+              Four-Pillar Career Positioning
+            </h2>
+            <p className="text-xs sm:text-sm text-[#94A3B8]">
+              Interconnected disciplines creating a unified engineering skill set.
+            </p>
+          </div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {careerPillars.map((pillar) => {
+              const Icon = pillar.icon
+              return (
+                <div
+                  key={pillar.title}
+                  className="p-6 rounded-2xl bg-[#111B30]/75 backdrop-blur-xl border border-white/10 hover:border-white/25 shadow-xl transition-all duration-300 flex flex-col justify-between"
+                >
+                  <div className="space-y-3">
+                    <div className="w-10 h-10 rounded-xl bg-[#070B14]/80 border border-white/10 flex items-center justify-center text-cyan-400">
+                      <Icon className="w-5 h-5" />
                     </div>
-                    <div className="flex items-center justify-center gap-2">
-                      <Calendar className="h-4 w-4" /> Open to work
+                    <div>
+                      <h3 className="text-lg font-bold text-[#E0F2FE] mb-1">
+                        {pillar.title}
+                      </h3>
+                      <span className="text-[10px] font-mono text-cyan-400 font-semibold block mb-2">
+                        {pillar.badge}
+                      </span>
                     </div>
+                    <p className="text-xs text-[#94A3B8] leading-relaxed font-light">
+                      {pillar.desc}
+                    </p>
                   </div>
                 </div>
+              )
+            })}
+          </div>
+        </section>
 
-                {/* Certification Badges */}
-                <div className="mt-6 space-y-4">
-                  <div className="text-center">
-                    <h4 className="text-sm font-semibold text-muted-foreground mb-3">Certifications & Expertise</h4>
+        {/* 3. CAREER JOURNEY */}
+        <section className="space-y-8">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-white/10 pb-4">
+            <div>
+              <div className="text-xs font-mono font-bold text-cyan-400 uppercase tracking-wider mb-1">
+                Verified Trajectory
+              </div>
+              <h2 className="text-2xl sm:text-3xl font-extrabold text-[#E0F2FE]">
+                Professional Career Journey
+              </h2>
+            </div>
+            <Link
+              href="/#experience"
+              className="text-xs font-semibold text-cyan-400 hover:text-cyan-300 transition-colors inline-flex items-center gap-1"
+            >
+              View Full Timeline
+              <ArrowRight className="w-3.5 h-3.5" />
+            </Link>
+          </div>
+
+          <div className="space-y-4">
+            {careerMilestones.map((item, idx) => (
+              <div
+                key={idx}
+                className="p-6 rounded-2xl bg-[#111B30]/75 backdrop-blur-xl border border-white/10 hover:border-white/20 transition-all flex flex-col sm:flex-row sm:items-start justify-between gap-4"
+              >
+                <div className="space-y-2 flex-1">
+                  <div className="flex flex-wrap items-center gap-2">
+                    <h3 className="text-lg font-bold text-[#E0F2FE]">{item.role}</h3>
+                    <span className="text-sm font-semibold text-purple-300">@ {item.organization}</span>
+                    <Badge variant="outline" className="text-[10px] font-mono border-white/10 text-slate-300">
+                      {item.pillar}
+                    </Badge>
                   </div>
-                  <div className="grid grid-cols-2 gap-2">
-                    {certificationBadges.map((badge, index) => (
-                      <motion.div
-                        key={badge.name}
-                        initial={{ opacity: 0, scale: 0.8 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{
-                          duration: 0.4,
-                          delay: 0.4 + index * 0.1,
-                          type: "spring",
-                          stiffness: 200,
-                        }}
-                        whileHover={{ scale: 1.05, y: -2 }}
-                        className="group cursor-default"
+
+                  <p className="text-xs sm:text-sm text-[#94A3B8] leading-relaxed font-light">
+                    {item.desc}
+                  </p>
+
+                  <div className="flex flex-wrap gap-1.5 pt-2">
+                    {item.tech.map((t) => (
+                      <span
+                        key={t}
+                        className="text-[10px] font-mono px-2 py-0.5 rounded bg-[#070B14]/80 text-[#E0F2FE]/80 border border-white/10"
                       >
-                        <div
-                          className={`p-3 rounded-lg border-2 transition-all duration-200 hover:shadow-md ${badge.color}`}
-                        >
-                          <div className="text-center space-y-1">
-                            <div className="text-lg">{badge.icon}</div>
-                            <div className="text-xs font-medium">{badge.name}</div>
-                            <div className="text-xs opacity-75">{badge.description}</div>
-                          </div>
-                        </div>
-                      </motion.div>
+                        {t}
+                      </span>
                     ))}
                   </div>
                 </div>
-              </CardContent>
-            </Card>
 
-            {/* Quick stats */}
-            <div className="grid grid-cols-2 gap-4">
-              <Card>
-                <CardContent className="p-4 text-center">
-                  <Code className="h-6 w-6 text-primary mx-auto mb-2" />
-                  <div className="text-2xl font-bold">15+</div>
-                  <p className="text-sm text-muted-foreground">Projects</p>
-                </CardContent>
-              </Card>
-              <Card>
-                <CardContent className="p-4 text-center">
-                  <Users className="h-6 w-6 text-primary mx-auto mb-2" />
-                  <div className="text-2xl font-bold">10+</div>
-                  <p className="text-sm text-muted-foreground">Clients</p>
-                </CardContent>
-              </Card>
-            </div>
-          </motion.section>
-
-          {/* ----------  RIGHT COLUMN  ---------- */}
-          <div className="lg:col-span-2 space-y-12">
-            {/* -----  STORY  ----- */}
-            <motion.section
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              className="space-y-6"
-            >
-              <h2 className="flex items-center gap-2 text-2xl font-bold">
-                <Palette className="h-6 w-6 text-primary" /> My Story
-              </h2>
-              <div className="prose prose-neutral dark:prose-invert max-w-none">
-                <p>
-                  My tech journey began during computer-science studies where I found equal love for development and
-                  design. I'm fascinated by using technology to solve real-world problems and craft meaningful user
-                  experiences.
-                </p>
-                <p>
-                  I've built responsive web apps, designed intuitive UIs, and delivered Salesforce customizations –
-                  always eager to learn and apply new tech.
-                </p>
-                <p>
-                  Outside coding you'll find me exploring emerging tools, contributing to open-source, or diving into
-                  design trends.
-                </p>
+                <div className="text-left sm:text-right flex-shrink-0">
+                  <span className="text-xs font-mono font-semibold px-2.5 py-1 rounded-md border border-cyan-400/30 text-cyan-300 bg-cyan-950/40 block mb-1">
+                    {item.period}
+                  </span>
+                  <span className="text-xs text-[#94A3B8] flex items-center sm:justify-end gap-1">
+                    <MapPin className="w-3 h-3 text-cyan-400" />
+                    {item.location}
+                  </span>
+                </div>
               </div>
-            </motion.section>
-
-            {/* -----  EXPERIENCE  ----- */}
-            <motion.section
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
-              className="space-y-6"
-            >
-              <h2 className="flex items-center gap-2 text-2xl font-bold">
-                <Award className="h-6 w-6 text-primary" /> Experience
-              </h2>
-              <div className="space-y-6">
-                {experiences.map((exp, i) => (
-                  <motion.div
-                    key={exp.title}
-                    initial={{ opacity: 0, x: 30 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.6, delay: 0.8 + i * 0.1 }}
-                  >
-                    <Card>
-                      <CardContent className="p-6">
-                        <div className="flex flex-wrap items-start justify-between gap-2 mb-3">
-                          <div>
-                            <h3 className="font-semibold text-lg">{exp.title}</h3>
-                            <p className="text-primary font-medium">{exp.company}</p>
-                          </div>
-                          <Badge variant="secondary">{exp.period}</Badge>
-                        </div>
-                        <p className="text-muted-foreground text-sm mb-3">{exp.description}</p>
-
-                        {"projects" in exp && exp.projects && (
-                          <div className="space-y-3 mt-4 pt-4 border-t border-border/60">
-                            {exp.projects.map((proj, pIdx) => (
-                              <div key={pIdx} className="p-3 rounded-lg bg-muted/40 border border-border/50">
-                                <h4 className="text-xs font-semibold text-foreground mb-2 flex items-center gap-1.5">
-                                  <span className="w-1.5 h-1.5 rounded-full bg-primary" />
-                                  {proj.name}
-                                </h4>
-                                <ul className="space-y-1.5 text-xs text-muted-foreground">
-                                  {proj.points.map((pt, ptIdx) => (
-                                    <li key={ptIdx} className="flex items-start gap-1.5">
-                                      <span className="text-primary mt-0.5">•</span>
-                                      <span className="leading-relaxed">{pt}</span>
-                                    </li>
-                                  ))}
-                                </ul>
-                              </div>
-                            ))}
-                          </div>
-                        )}
-
-                        {"points" in exp && exp.points && (
-                          <ul className="space-y-1.5 mt-3 pt-3 border-t border-border/60 text-xs text-muted-foreground">
-                            {exp.points.map((pt, ptIdx) => (
-                              <li key={ptIdx} className="flex items-start gap-1.5">
-                                <span className="text-primary mt-0.5">•</span>
-                                <span className="leading-relaxed">{pt}</span>
-                              </li>
-                            ))}
-                          </ul>
-                        )}
-                      </CardContent>
-                    </Card>
-                  </motion.div>
-                ))}
-              </div>
-            </motion.section>
-
-            {/* -----  EDUCATION  ----- */}
-            <motion.section
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.7 }}
-              className="space-y-6"
-            >
-              <h2 className="flex items-center gap-2 text-2xl font-bold">
-                <GraduationCap className="h-6 w-6 text-primary" /> Education
-              </h2>
-              <div className="space-y-4">
-                {education.map((edu, i) => (
-                  <motion.div
-                    key={edu.degree}
-                    initial={{ opacity: 0, x: 30 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.6, delay: 0.8 + i * 0.1 }}
-                  >
-                    <Card>
-                      <CardContent className="p-6">
-                        <div className="flex flex-wrap items-start justify-between gap-2 mb-2">
-                          <div>
-                            <h3 className="font-semibold text-lg">{edu.degree}</h3>
-                            <p className="text-primary font-medium">{edu.institution}</p>
-                          </div>
-                          <div className="flex items-center gap-2">
-                            <Badge variant="outline" className="font-mono font-semibold text-primary border-primary/40">
-                              {edu.score}
-                            </Badge>
-                            <Badge variant="secondary">{edu.period}</Badge>
-                          </div>
-                        </div>
-                        <p className="text-muted-foreground text-sm">{edu.description}</p>
-                      </CardContent>
-                    </Card>
-                  </motion.div>
-                ))}
-              </div>
-            </motion.section>
-
-            {/* -----  SKILLS  ----- */}
-            <motion.section
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.8 }}
-              className="space-y-8"
-            >
-              <h2 className="text-2xl font-bold">Skills & Technologies</h2>
-
-              {/* Skill cards */}
-              <div className="grid gap-8">
-                {skills.map((group, gi) => (
-                  <motion.div
-                    key={group.category}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: 1 + gi * 0.1 }}
-                  >
-                    <Card className="hover:shadow-lg transition-all duration-300">
-                      <CardContent className="p-8">
-                        <div className="flex items-center gap-3 mb-6">
-                          <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
-                            <span className="text-primary text-lg">
-                              {{
-                                Frontend: "🎨",
-                                Backend: "⚙️",
-                                Salesforce: "☁️",
-                                "UI/UX": "✨",
-                                Tools: "🛠️",
-                              }[group.category] ?? "📌"}
-                            </span>
-                          </div>
-                          <h3 className="text-xl font-bold text-primary">{group.category}</h3>
-                          <div className="flex-1 h-px bg-gradient-to-r from-primary/20 to-transparent ml-4" />
-                        </div>
-
-                        {/* badges */}
-                        <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
-                          {group.items.map((skill, si) => (
-                            <motion.div
-                              key={skill}
-                              initial={{ opacity: 0, scale: 0.85 }}
-                              animate={{ opacity: 1, scale: 1 }}
-                              transition={{
-                                duration: 0.4,
-                                delay: 1.2 + gi * 0.1 + si * 0.05,
-                                type: "spring",
-                                stiffness: 220,
-                              }}
-                              whileHover={{ scale: 1.05, y: -2 }}
-                            >
-                              <Badge
-                                variant="outline"
-                                className="w-full justify-center py-2 text-sm border-2 hover:border-primary/50 hover:bg-primary/5 transition"
-                              >
-                                {skill}
-                              </Badge>
-                            </motion.div>
-                          ))}
-                        </div>
-                      </CardContent>
-                    </Card>
-                  </motion.div>
-                ))}
-              </div>
-
-              {/* Skills summary (no left margin) */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 1.6 }}
-              >
-                <Card className="bg-gradient-to-r from-primary/5 to-secondary/5 border-primary/20">
-                  <CardContent className="p-8">
-                    <div className="grid md:grid-cols-3 gap-6 text-center">
-                      <div>
-                        <p className="text-2xl font-bold text-primary">
-                          {skills.reduce((t, g) => t + g.items.length, 0)}+
-                        </p>
-                        <p className="text-sm text-muted-foreground">Total Technologies</p>
-                      </div>
-                      <div>
-                        <p className="text-2xl font-bold text-primary">{skills.length}</p>
-                        <p className="text-sm text-muted-foreground">Skill Categories</p>
-                      </div>
-                      <div>
-                        <p className="text-2xl font-bold text-primary">3+</p>
-                        <p className="text-sm text-muted-foreground">Years Learning</p>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            </motion.section>
+            ))}
           </div>
-        </div>
+        </section>
+
+        {/* 4. EDUCATION & CREDENTIALS */}
+        <section className="space-y-8">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-white/10 pb-4">
+            <div>
+              <div className="text-xs font-mono font-bold text-cyan-400 uppercase tracking-wider mb-1">
+                Accreditations
+              </div>
+              <h2 className="text-2xl sm:text-3xl font-extrabold text-[#E0F2FE]">
+                Education & Verified Credentials
+              </h2>
+            </div>
+            <Link
+              href="/#certifications"
+              className="text-xs font-semibold text-cyan-400 hover:text-cyan-300 transition-colors inline-flex items-center gap-1"
+            >
+              Verify All Accreditations
+              <ArrowRight className="w-3.5 h-3.5" />
+            </Link>
+          </div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {credentials.map((cred, idx) => (
+              <div
+                key={idx}
+                className="p-5 rounded-2xl bg-[#111B30]/75 backdrop-blur-xl border border-white/10 hover:border-white/25 shadow-lg flex flex-col justify-between"
+              >
+                <div className="space-y-2">
+                  <div className="flex items-center justify-between text-xs text-[#94A3B8] font-mono">
+                    <span>{cred.issuer}</span>
+                    <span>{cred.period}</span>
+                  </div>
+
+                  <h3 className="text-sm font-bold text-[#E0F2FE] leading-snug">
+                    {cred.title}
+                  </h3>
+
+                  <div className="pt-2">
+                    <span className="inline-flex items-center gap-1.5 text-[11px] font-mono text-cyan-300 bg-[#070B14]/80 px-2 py-1 rounded border border-white/10">
+                      {cred.type === "education" ? (
+                        <GraduationCap className="w-3.5 h-3.5 text-cyan-400" />
+                      ) : (
+                        <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
+                      )}
+                      {cred.badge}
+                    </span>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* 5. TECHNICAL PHILOSOPHY */}
+        <section className="p-8 sm:p-10 rounded-3xl bg-gradient-to-br from-[#111B30]/85 via-[#0D1527]/80 to-[#16223B]/80 backdrop-blur-xl border border-white/10 shadow-2xl text-center space-y-6">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-400/20 text-cyan-400 text-xs font-semibold tracking-widest uppercase backdrop-blur-md">
+            <Compass className="w-3.5 h-3.5" /> Core Philosophy
+          </div>
+
+          <blockquote className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#E0F2FE] max-w-3xl mx-auto leading-tight">
+            "Analyze deeply. Build intelligently. Design intentionally. Capture beautifully."
+          </blockquote>
+
+          <p className="text-xs sm:text-sm text-[#94A3B8] max-w-2xl mx-auto leading-relaxed font-light">
+            Engineering without empathy produces rigid systems. Design without technical rigor produces fragile illusions. By intertwining mathematical data modeling, production code quality, and human-centered design systems, we craft digital products that truly endure.
+          </p>
+        </section>
+
+        {/* 6. LINK TO FLAGSHIP PROJECTS */}
+        <section className="p-8 rounded-2xl bg-[#111B30]/75 backdrop-blur-xl border border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-6">
+          <div className="space-y-1">
+            <h3 className="text-xl font-bold text-[#E0F2FE]">
+              Ready to examine technical architectures?
+            </h3>
+            <p className="text-xs sm:text-sm text-[#94A3B8]">
+              Inspect comprehensive engineering case studies across ChurnPlatform, OmniChannel Analytics, SuperShopy, and QA-Pramaan.
+            </p>
+          </div>
+
+          <Button
+            asChild
+            className="bg-gradient-to-r from-cyan-400 via-sky-400 to-indigo-500 text-slate-950 font-bold text-xs rounded-xl shadow-md shadow-cyan-500/20 flex-shrink-0"
+          >
+            <Link href="/projects">
+              Explore All Case Studies
+              <ArrowRight className="w-3.5 h-3.5 ml-1.5" />
+            </Link>
+          </Button>
+        </section>
+
+        {/* 7. CONTACT CTA */}
+        <section className="text-center space-y-4 pt-4 border-t border-white/10">
+          <div className="text-xs font-mono font-bold text-cyan-400 uppercase tracking-wider">
+            Initiate Collaboration
+          </div>
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-[#E0F2FE]">
+            Let's build something intelligent together.
+          </h2>
+          <p className="text-xs sm:text-sm text-[#94A3B8] max-w-xl mx-auto">
+            Whether you need a data analytics pipeline, modern full-stack web application, or machine learning integration, I am open to discussing new opportunities.
+          </p>
+          <div className="pt-2">
+            <Button
+              asChild
+              size="lg"
+              className="bg-gradient-to-r from-cyan-400 via-sky-400 to-indigo-500 text-slate-950 font-bold rounded-xl shadow-lg shadow-cyan-500/20"
+            >
+              <Link href="/contact">
+                Contact Abhishek Bubane
+                <ArrowRight className="w-4 h-4 ml-2" />
+              </Link>
+            </Button>
+          </div>
+        </section>
       </div>
     </div>
   )

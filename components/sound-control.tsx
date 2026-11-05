@@ -81,8 +81,8 @@ export function SoundControl() {
           variant="outline"
           size="icon"
           onClick={() => setShowControls(!showControls)}
-          className={`bg-background/80 backdrop-blur-sm border-border/50 hover:bg-background/90 transition-all duration-200 shadow-md ${
-            !soundEnabled ? "text-muted-foreground" : ""
+          className={`bg-[#111B30]/85 backdrop-blur-xl border border-white/10 hover:border-white/20 hover:bg-[#111B30] text-[#E0F2FE] shadow-2xl transition-all duration-200 rounded-full ${
+            !soundEnabled ? "text-[#94A3B8]" : "text-cyan-300"
           }`}
           aria-label="Sound settings"
         >
@@ -95,23 +95,23 @@ export function SoundControl() {
               initial={{ opacity: 0, y: 10, scale: 0.9 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: 10, scale: 0.9 }}
-              className="absolute bottom-full left-0 mb-2 p-4 bg-background/95 backdrop-blur-sm border border-border/50 rounded-lg shadow-lg min-w-[200px]"
+              className="absolute bottom-full left-0 mb-2 p-4 bg-[#111B30]/95 backdrop-blur-xl border border-white/10 rounded-xl shadow-2xl min-w-[220px] text-[#E0F2FE]"
             >
               <div className="space-y-4">
                 <div className="flex items-center justify-between">
-                  <span className="text-sm font-medium">Sound Effects</span>
+                  <span className="text-sm font-medium text-[#E0F2FE]">Sound Effects</span>
                   <Button
                     variant="ghost"
                     size="sm"
                     onClick={toggleSound}
-                    className={`h-6 px-2 ${soundEnabled ? "text-green-600" : "text-red-500"}`}
+                    className={`h-6 px-2 text-xs font-bold ${soundEnabled ? "text-emerald-400" : "text-rose-400"}`}
                   >
                     {soundEnabled ? "On" : "Off"}
                   </Button>
                 </div>
 
                 <div className="space-y-2">
-                  <label className="text-xs text-muted-foreground">Volume</label>
+                  <label className="text-xs text-[#94A3B8]">Volume</label>
                   <input
                     type="range"
                     min="0"
@@ -119,12 +119,9 @@ export function SoundControl() {
                     step="0.1"
                     value={volume}
                     onChange={(e) => handleVolumeChange(Number.parseFloat(e.target.value))}
-                    className="w-full h-2 bg-muted rounded-lg appearance-none cursor-pointer slider"
-                    style={{
-                      background: `linear-gradient(to right, hsl(var(--primary)) 0%, hsl(var(--primary)) ${volume * 100}%, hsl(var(--muted)) ${volume * 100}%, hsl(var(--muted)) 100%)`,
-                    }}
+                    className="w-full h-2 bg-[#070B14] rounded-lg appearance-none cursor-pointer slider"
                   />
-                  <div className="flex justify-between text-xs text-muted-foreground">
+                  <div className="flex justify-between text-xs text-[#94A3B8]">
                     <span>0%</span>
                     <span>{Math.round(volume * 100)}%</span>
                     <span>100%</span>
@@ -136,7 +133,7 @@ export function SoundControl() {
                     variant={volume === 0.2 ? "default" : "ghost"}
                     size="sm"
                     onClick={() => handleVolumeChange(0.2)}
-                    className="h-6 px-1"
+                    className="h-6 px-1 text-xs"
                   >
                     Low
                   </Button>
@@ -144,7 +141,7 @@ export function SoundControl() {
                     variant={volume === 0.4 ? "default" : "ghost"}
                     size="sm"
                     onClick={() => handleVolumeChange(0.4)}
-                    className="h-6 px-1"
+                    className="h-6 px-1 text-xs"
                   >
                     Med
                   </Button>
@@ -152,14 +149,14 @@ export function SoundControl() {
                     variant={volume === 0.8 ? "default" : "ghost"}
                     size="sm"
                     onClick={() => handleVolumeChange(0.8)}
-                    className="h-6 px-1"
+                    className="h-6 px-1 text-xs"
                   >
                     High
                   </Button>
                 </div>
 
-                <div className="pt-2 border-t border-border/50">
-                  <Button variant="ghost" size="sm" onClick={toggleSound} className="w-full h-8 text-xs">
+                <div className="pt-2 border-t border-white/10">
+                  <Button variant="ghost" size="sm" onClick={toggleSound} className="w-full h-8 text-xs text-[#E0F2FE] hover:bg-[#070B14]">
                     {soundEnabled ? "🔇 Mute All" : "🔊 Unmute All"}
                   </Button>
                 </div>

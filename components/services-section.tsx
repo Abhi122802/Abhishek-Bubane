@@ -97,21 +97,21 @@ const services: ServiceItem[] = [
 
 export function ServicesSection() {
   return (
-    <section id="services" className="relative py-28 px-4 sm:px-6 lg:px-8 bg-[#070B14] overflow-hidden border-t border-[#26324A]/60">
+    <section id="services" className="relative py-28 px-4 sm:px-6 lg:px-8 bg-[#070B14] overflow-hidden border-t border-white/10">
       {/* Background Ambience */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-gradient-to-tr from-cyan-600/5 via-purple-600/5 to-transparent rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-gradient-to-tr from-cyan-600/10 via-purple-600/10 to-transparent rounded-full blur-[140px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-xs font-semibold tracking-wider uppercase mb-3">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-400/20 text-cyan-400 text-xs font-semibold tracking-wider uppercase mb-3 backdrop-blur-md">
             <Sparkles className="w-3.5 h-3.5" />
             Capabilities & Offerings
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#E0F2FE] tracking-tight">
             Comprehensive Digital Services
           </h2>
-          <p className="mt-4 text-slate-400 text-base sm:text-lg">
+          <p className="mt-4 text-[#94A3B8] text-base sm:text-lg">
             One partner bridging analytical rigor, robust software engineering, enterprise CRM automation, and high-impact visual aesthetics.
           </p>
         </div>
@@ -127,18 +127,18 @@ export function ServicesSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: idx * 0.08 }}
-                className={`group relative p-7 rounded-2xl bg-[#0F162B] border ${service.accentColor} shadow-xl hover:shadow-cyan-500/10 transition-all duration-300 flex flex-col justify-between overflow-hidden`}
+                className="group relative p-7 rounded-2xl bg-[#111B30]/75 backdrop-blur-xl border border-white/10 hover:border-white/25 shadow-2xl hover:shadow-cyan-500/10 transition-all duration-300 flex flex-col justify-between overflow-hidden"
               >
                 {/* Subtle Gradient Backlight */}
                 <div className={`absolute top-0 right-0 w-48 h-48 bg-gradient-to-bl ${service.gradient} rounded-full blur-2xl pointer-events-none opacity-40 group-hover:opacity-80 transition-opacity`} />
 
                 <div>
                   {/* Service Icon */}
-                  <div className="w-12 h-12 rounded-xl bg-[#151D32] border border-[#26324A] flex items-center justify-center mb-6 group-hover:scale-110 group-hover:border-cyan-500/50 transition-all">
-                    <Icon className="w-6 h-6 text-white group-hover:text-cyan-400 transition-colors" />
+                  <div className="w-12 h-12 rounded-xl bg-[#070B14]/80 border border-white/10 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:border-cyan-400/50 transition-all">
+                    <Icon className="w-6 h-6 text-[#E0F2FE] group-hover:text-cyan-400 transition-colors" />
                   </div>
 
-                  <h3 className="text-xl font-bold text-white mb-2 group-hover:text-cyan-300 transition-colors">
+                  <h3 className="text-xl font-bold text-[#E0F2FE] mb-2 group-hover:text-cyan-300 transition-colors">
                     {service.title}
                   </h3>
 
@@ -146,12 +146,12 @@ export function ServicesSection() {
                     {service.tagline}
                   </p>
 
-                  <p className="text-sm text-slate-400 leading-relaxed mb-6 font-light">
+                  <p className="text-sm text-[#94A3B8] leading-relaxed mb-6 font-light">
                     {service.description}
                   </p>
 
                   {/* Deliverables Checklist */}
-                  <div className="space-y-2 pt-4 border-t border-[#26324A]/70">
+                  <div className="space-y-2 pt-4 border-t border-white/10">
                     <span className="text-[11px] font-mono uppercase tracking-wider text-slate-400 block mb-2">
                       Key Deliverables
                     </span>
@@ -165,16 +165,16 @@ export function ServicesSection() {
                 </div>
 
                 {/* Bottom Action */}
-                <div className="pt-6 mt-6 border-t border-[#26324A]/60 flex items-center justify-between">
+                <div className="pt-6 mt-6 border-t border-white/10 flex items-center justify-between">
                   <a
                     href={service.anchorLink}
-                    className="text-xs font-semibold text-slate-400 hover:text-white transition-colors flex items-center gap-1"
+                    className="text-xs font-semibold text-slate-400 hover:text-[#E0F2FE] transition-colors flex items-center gap-1"
                   >
                     Explore Lab Module
                   </a>
                   <a
                     href="#contact"
-                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#151D32] hover:bg-gradient-to-r hover:from-cyan-500 hover:to-purple-600 text-slate-200 hover:text-white text-xs font-semibold transition-all border border-[#26324A] hover:border-transparent group-hover:shadow-md"
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#070B14]/80 hover:bg-gradient-to-r hover:from-cyan-400 hover:to-indigo-500 text-slate-200 hover:text-slate-950 text-xs font-semibold transition-all border border-white/10 hover:border-transparent group-hover:shadow-md"
                   >
                     Request Service
                     <ArrowUpRight className="w-3.5 h-3.5" />

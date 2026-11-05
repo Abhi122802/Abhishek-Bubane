@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg-grad-super" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#070B14"/>
+      <stop offset="50%" stop-color="#111B30"/>
+      <stop offset="100%" stop-color="#070B14"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background Canvas -->
+  <rect width="800" height="450" fill="url(#bg-grad-super)" rx="16"/>
+  <rect width="800" height="450" fill="none" stroke="#ffffff" stroke-opacity="0.1" stroke-width="1.5" rx="16"/>
+
+  <!-- Watermark / Status Header -->
+  <g transform="translate(30, 36)">
+    <rect width="400" height="26" rx="6" fill="#111B30" stroke="#14B8A6" stroke-opacity="0.3"/>
+    <circle cx="14" cy="13" r="4" fill="#14B8A6"/>
+    <text x="26" y="17" fill="#E0F2FE" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="600" letter-spacing="0.5">SUPERSHOPY • MULTI-TENANT LOGISTICS & QR PIPELINE</text>
+    <rect x="520" y="0" width="220" height="26" rx="6" fill="#070B14" stroke="#ffffff" stroke-opacity="0.1"/>
+    <text x="532" y="17" fill="#94A3B8" font-family="monospace" font-size="9" letter-spacing="0.5">REPRESENTATIVE ARCHITECTURE</text>
+  </g>
+
+  <!-- Connectors -->
+  <path d="M 190 200 L 260 200" stroke="#14B8A6" stroke-width="2" stroke-dasharray="4,4" opacity="0.8"/>
+  <path d="M 370 200 L 440 200" stroke="#38BDF8" stroke-width="2" stroke-dasharray="4,4" opacity="0.8"/>
+  <path d="M 550 200 L 620 200" stroke="#818CF8" stroke-width="2" stroke-dasharray="4,4" opacity="0.8"/>
+
+  <!-- NODE 1: Multi-Tenant Apps -->
+  <g transform="translate(50, 120)">
+    <rect width="140" height="170" rx="12" fill="#070B14" fill-opacity="0.9" stroke="#14B8A6" stroke-width="1.5"/>
+    <rect x="0" y="0" width="140" height="34" rx="12" fill="#111B30" stroke="#14B8A6" stroke-opacity="0.3"/>
+    <text x="14" y="22" fill="#E0F2FE" font-family="system-ui, sans-serif" font-size="11" font-weight="bold">1. Clients & Portals</text>
+    <text x="14" y="58" fill="#14B8A6" font-family="monospace" font-size="11" font-weight="600">React & Tailwind</text>
+    <text x="14" y="76" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="10">Multi-Role Frontends</text>
+    <text x="14" y="100" fill="#E0F2FE" font-family="system-ui, sans-serif" font-size="10">• Client Storefront</text>
+    <text x="14" y="118" fill="#E0F2FE" font-family="system-ui, sans-serif" font-size="10">• Warehouse Portal</text>
+    <text x="14" y="136" fill="#E0F2FE" font-family="system-ui, sans-serif" font-size="10">• Driver Delivery App</text>
+    <text x="14" y="154" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="9">RBAC Guards</text>
+  </g>
+
+  <!-- NODE 2: Hardened API Gateway -->
+  <g transform="translate(230, 120)">
+    <rect width="140" height="170" rx="12" fill="#070B14" fill-opacity="0.9" stroke="#38BDF8" stroke-width="1.5"/>
+    <rect x="0" y="0" width="140" height="34" rx="12" fill="#111B30" stroke="#38BDF8" stroke-opacity="0.3"/>
+    <text x="14" y="22" fill="#E0F2FE" font-family="system-ui, sans-serif" font-size="11" font-weight="bold">2. Core Backend</text>
+    <text x="14" y="58" fill="#38BDF8" font-family="monospace" font-size="11" font-weight="600">Node / Express</text>
+    <text x="14" y="76" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="10">TypeScript Service</text>
+    <text x="14" y="100" fill="#E0F2FE" font-family="system-ui, sans-serif" font-size="10">• Rate Limiting</text>
+    <text x="14" y="118" fill="#E0F2FE" font-family="system-ui, sans-serif" font-size="10">• Helmet Headers</text>
+    <text x="14" y="136" fill="#E0F2FE" font-family="system-ui, sans-serif" font-size="10">• JWT Session Auth</text>
+    <text x="14" y="154" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="9">Tenant Partitioning</text>
+  </g>
+
+  <!-- NODE 3: Order Snapshot Ledger -->
+  <g transform="translate(410, 120)">
+    <rect width="140" height="170" rx="12" fill="#070B14" fill-opacity="0.9" stroke="#818CF8" stroke-width="1.5"/>
+    <rect x="0" y="0" width="140" height="34" rx="12" fill="#111B30" stroke="#818CF8" stroke-opacity="0.3"/>
+    <text x="14" y="22" fill="#E0F2FE" font-family="system-ui, sans-serif" font-size="11" font-weight="bold">3. Data Engine</text>
+    <text x="14" y="58" fill="#818CF8" font-family="monospace" font-size="11" font-weight="600">MongoDB Clusters</text>
+    <text x="14" y="76" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="10">Immutable Snapshots</text>
+    <text x="14" y="100" fill="#E0F2FE" font-family="system-ui, sans-serif" font-size="10">• Frozen Order Cart</text>
+    <text x="14" y="118" fill="#E0F2FE" font-family="system-ui, sans-serif" font-size="10">• Price-at-Checkout</text>
+    <text x="14" y="136" fill="#E0F2FE" font-family="system-ui, sans-serif" font-size="10">• Inventory Decrement</text>
+    <text x="14" y="154" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="9">Audit State Ledger</text>
+  </g>
+
+  <!-- NODE 4: QR Courier Verification -->
+  <g transform="translate(590, 120)">
+    <rect width="160" height="170" rx="12" fill="#070B14" fill-opacity="0.9" stroke="#E0F2FE" stroke-width="1.5"/>
+    <rect x="0" y="0" width="160" height="34" rx="12" fill="#111B30" stroke="#E0F2FE" stroke-opacity="0.3"/>
+    <text x="14" y="22" fill="#E0F2FE" font-family="system-ui, sans-serif" font-size="11" font-weight="bold">4. Proof of Delivery</text>
+    <text x="14" y="58" fill="#14B8A6" font-family="monospace" font-size="11" font-weight="600">HTML5-Qrcode</text>
+    <text x="14" y="76" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="10">Camera SDK Ingestion</text>
+    <text x="14" y="100" fill="#E0F2FE" font-family="system-ui, sans-serif" font-size="10">• Handoff Validation</text>
+    <text x="14" y="118" fill="#E0F2FE" font-family="system-ui, sans-serif" font-size="10">• Tokenized Barcode</text>
+    <text x="14" y="136" fill="#E0F2FE" font-family="system-ui, sans-serif" font-size="10">• Instant Status Update</text>
+    <text x="14" y="154" fill="#14B8A6" font-family="system-ui, sans-serif" font-size="9">supershopy.vercel.app</text>
+  </g>
+
+  <!-- Bottom Spec Footnote -->
+  <g transform="translate(50, 330)">
+    <rect width="700" height="70" rx="10" fill="#111B30" fill-opacity="0.8" stroke="#ffffff" stroke-opacity="0.08"/>
+    <text x="24" y="28" fill="#E0F2FE" font-family="system-ui, sans-serif" font-size="11" font-weight="bold">Engineered Reliability Highlights</text>
+    <text x="24" y="48" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="10">Immutable order snapshots prevent price/item mutations post-checkout. Dynamic QR scanner validation ensures physical couriers cannot mark orders delivered without verified warehouse handoff.</text>
+  </g>
+</svg>

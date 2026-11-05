@@ -6,7 +6,7 @@ import { Compass, Sparkles, Layers } from "lucide-react"
 
 export function PersonalPhilosophy() {
   return (
-    <section className="relative py-32 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-[#070B14] via-[#0B1020] to-[#070B14] overflow-hidden border-t border-[#26324A]/60 text-center">
+    <section className="relative py-32 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-[#070B14] via-[#070B14] to-[#070B14] overflow-hidden border-t border-white/10 text-center">
       {/* Background Aurora Rings */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] bg-gradient-to-r from-cyan-500/10 via-purple-500/10 to-pink-500/10 rounded-full blur-[140px] pointer-events-none" />
 
@@ -15,7 +15,7 @@ export function PersonalPhilosophy() {
           initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-xs font-semibold tracking-widest uppercase mb-8"
+          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-400/20 text-cyan-400 text-xs font-semibold tracking-widest uppercase mb-8 backdrop-blur-md"
         >
           <Compass className="w-3.5 h-3.5" />
           Core Personal Philosophy
@@ -28,7 +28,7 @@ export function PersonalPhilosophy() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tight text-white leading-none"
+            className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tight text-[#E0F2FE] leading-none"
           >
             Analyze deeply.
           </motion.div>
@@ -70,12 +70,12 @@ export function PersonalPhilosophy() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.5 }}
-          className="mt-14 max-w-2xl mx-auto p-6 rounded-2xl bg-[#151D32]/70 backdrop-blur-md border border-[#26324A] shadow-2xl"
+          className="mt-14 max-w-2xl mx-auto p-6 rounded-2xl bg-[#111B30]/75 backdrop-blur-xl border border-white/10 hover:border-white/20 shadow-2xl transition-all"
         >
-          <p className="text-slate-300 text-base sm:text-lg leading-relaxed font-light">
+          <p className="text-[#E0F2FE]/90 text-base sm:text-lg leading-relaxed font-light">
             "Engineering without empathy produces rigid systems. Design without technical rigor produces fragile illusions. By intertwining data intelligence, scalable code, and visual storytelling, we craft digital products that truly resonate."
           </p>
-          <div className="mt-4 pt-4 border-t border-[#26324A]/60 flex items-center justify-center gap-3 text-xs font-mono text-cyan-400">
+          <div className="mt-4 pt-4 border-t border-white/10 flex items-center justify-center gap-3 text-xs font-mono text-cyan-400">
             <span>DATA</span> • <span>AI</span> • <span>CODE</span> • <span>SALESFORCE</span> • <span>DESIGN</span> • <span>PHOTOGRAPHY</span>
           </div>
         </motion.div>

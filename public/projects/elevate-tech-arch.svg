@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg-grad-elevate" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#070B14"/>
+      <stop offset="50%" stop-color="#111B30"/>
+      <stop offset="100%" stop-color="#070B14"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="450" fill="url(#bg-grad-elevate)" rx="16"/>
+  <rect width="800" height="450" fill="none" stroke="#ffffff" stroke-opacity="0.1" stroke-width="1.5" rx="16"/>
+
+  <g transform="translate(30, 36)">
+    <rect width="430" height="26" rx="6" fill="#111B30" stroke="#C084FC" stroke-opacity="0.3"/>
+    <circle cx="14" cy="13" r="4" fill="#C084FC"/>
+    <text x="26" y="17" fill="#E0F2FE" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="600" letter-spacing="0.5">ELEVATE TECHNOLOGIES • SAAS LICENSING & E-COMMERCE</text>
+    <rect x="520" y="0" width="220" height="26" rx="6" fill="#070B14" stroke="#ffffff" stroke-opacity="0.1"/>
+    <text x="532" y="17" fill="#94A3B8" font-family="monospace" font-size="9" letter-spacing="0.5">REPRESENTATIVE ARCHITECTURE</text>
+  </g>
+
+  <!-- Connectors -->
+  <path d="M 190 200 L 260 200" stroke="#C084FC" stroke-width="2" stroke-dasharray="4,4" opacity="0.8"/>
+  <path d="M 370 200 L 440 200" stroke="#22D3EE" stroke-width="2" stroke-dasharray="4,4" opacity="0.8"/>
+  <path d="M 550 200 L 620 200" stroke="#38BDF8" stroke-width="2" stroke-dasharray="4,4" opacity="0.8"/>
+
+  <!-- NODE 1 -->
+  <g transform="translate(50, 120)">
+    <rect width="140" height="170" rx="12" fill="#070B14" fill-opacity="0.9" stroke="#C084FC" stroke-width="1.5"/>
+    <rect x="0" y="0" width="140" height="34" rx="12" fill="#111B30" stroke="#C084FC" stroke-opacity="0.3"/>
+    <text x="14" y="22" fill="#E0F2FE" font-family="system-ui, sans-serif" font-size="11" font-weight="bold">1. Modern UI Store</text>
+    <text x="14" y="58" fill="#C084FC" font-family="monospace" font-size="11" font-weight="600">React 19 & Redux</text>
+    <text x="14" y="76" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="10">Software Catalog</text>
+    <text x="14" y="100" fill="#E0F2FE" font-family="system-ui, sans-serif" font-size="10">• Interactive ROI Tool</text>
+    <text x="14" y="118" fill="#E0F2FE" font-family="system-ui, sans-serif" font-size="10">• Real-Time Stock State</text>
+    <text x="14" y="136" fill="#E0F2FE" font-family="system-ui, sans-serif" font-size="10">• Responsive Layout</text>
+    <text x="14" y="154" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="9">Redux Toolkit Store</text>
+  </g>
+
+  <!-- NODE 2 -->
+  <g transform="translate(230, 120)">
+    <rect width="140" height="170" rx="12" fill="#070B14" fill-opacity="0.9" stroke="#22D3EE" stroke-width="1.5"/>
+    <rect x="0" y="0" width="140" height="34" rx="12" fill="#111B30" stroke="#22D3EE" stroke-opacity="0.3"/>
+    <text x="14" y="22" fill="#E0F2FE" font-family="system-ui, sans-serif" font-size="11" font-weight="bold">2. License Server</text>
+    <text x="14" y="58" fill="#22D3EE" font-family="monospace" font-size="11" font-weight="600">Node / Express</text>
+    <text x="14" y="76" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="10">Cryptographic Auth</text>
+    <text x="14" y="100" fill="#E0F2FE" font-family="system-ui, sans-serif" font-size="10">• Node-Locked Keys</text>
+    <text x="14" y="118" fill="#E0F2FE" font-family="system-ui, sans-serif" font-size="10">• Hardware ID Hash</text>
+    <text x="14" y="136" fill="#E0F2FE" font-family="system-ui, sans-serif" font-size="10">• Automated Expiry</text>
+    <text x="14" y="154" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="9">System AuditLog</text>
+  </g>
+
+  <!-- NODE 3 -->
+  <g transform="translate(410, 120)">
+    <rect width="140" height="170" rx="12" fill="#070B14" fill-opacity="0.9" stroke="#38BDF8" stroke-width="1.5"/>
+    <rect x="0" y="0" width="140" height="34" rx="12" fill="#111B30" stroke="#38BDF8" stroke-opacity="0.3"/>
+    <text x="14" y="22" fill="#E0F2FE" font-family="system-ui, sans-serif" font-size="11" font-weight="bold">3. Checkout & Tax</text>
+    <text x="14" y="58" fill="#38BDF8" font-family="monospace" font-size="11" font-weight="600">Razorpay API</text>
+    <text x="14" y="76" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="10">Automated Ledger</text>
+    <text x="14" y="100" fill="#E0F2FE" font-family="system-ui, sans-serif" font-size="10">• CGST / SGST Ledger</text>
+    <text x="14" y="118" fill="#E0F2FE" font-family="system-ui, sans-serif" font-size="10">• Webhook Verification</text>
+    <text x="14" y="136" fill="#E0F2FE" font-family="system-ui, sans-serif" font-size="10">• Automated Invoices</text>
+    <text x="14" y="154" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="9">Idempotent Payments</text>
+  </g>
+
+  <!-- NODE 4 -->
+  <g transform="translate(590, 120)">
+    <rect width="160" height="170" rx="12" fill="#070B14" fill-opacity="0.9" stroke="#E0F2FE" stroke-width="1.5"/>
+    <rect x="0" y="0" width="160" height="34" rx="12" fill="#111B30" stroke="#E0F2FE" stroke-opacity="0.3"/>
+    <text x="14" y="22" fill="#E0F2FE" font-family="system-ui, sans-serif" font-size="11" font-weight="bold">4. Live Storefront</text>
+    <text x="14" y="58" fill="#C084FC" font-family="monospace" font-size="11" font-weight="600">Production SaaS</text>
+    <text x="14" y="76" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="10">Active Commercial App</text>
+    <text x="14" y="100" fill="#E0F2FE" font-family="system-ui, sans-serif" font-size="10">• Node.js / MongoDB</text>
+    <text x="14" y="118" fill="#E0F2FE" font-family="system-ui, sans-serif" font-size="10">• CORS Whitelisting</text>
+    <text x="14" y="136" fill="#E0F2FE" font-family="system-ui, sans-serif" font-size="10">• Instant Key Delivery</text>
+    <text x="14" y="154" fill="#C084FC" font-family="system-ui, sans-serif" font-size="9">elevatetechnologies.in</text>
+  </g>
+
+  <g transform="translate(50, 330)">
+    <rect width="700" height="70" rx="10" fill="#111B30" fill-opacity="0.8" stroke="#ffffff" stroke-opacity="0.08"/>
+    <text x="24" y="28" fill="#E0F2FE" font-family="system-ui, sans-serif" font-size="11" font-weight="bold">Hardware Node-Locked Key Architecture</text>
+    <text x="24" y="48" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="10">Generates encrypted, hardware-bound license files tied to client machine signatures, preventing unauthorized multi-workstation replication while automating statutory tax split reporting.</text>
+  </g>
+</svg>

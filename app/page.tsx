@@ -2,76 +2,48 @@
 
 import React from "react"
 import { HeroMultidisciplinary } from "@/components/hero-multidisciplinary"
-import { AboutMultidisciplinary } from "@/components/about-multidisciplinary"
-import { ExpertiseGrid } from "@/components/expertise-grid"
-import { TechUniverse } from "@/components/tech-universe"
+import { ExecutiveOverview } from "@/components/executive-overview"
+import { CareerSwitcher } from "@/components/career-switcher"
+import { EngineeringOperationsCenter } from "@/components/engineering-operations-center"
 import { ProjectsShowcase } from "@/components/projects-showcase"
-import { DataAnalyticsLab } from "@/components/data-analytics-lab"
-import { AiLab } from "@/components/ai-lab"
-import { FullstackArchitecture } from "@/components/fullstack-architecture"
-import { SalesforceStudio } from "@/components/salesforce-studio"
-import { DesignStudio } from "@/components/design-studio"
-import { PhotographyGallery } from "@/components/photography-gallery"
 import { ExperienceTimeline } from "@/components/experience-timeline"
 import { CertificationsShowcase } from "@/components/certifications-showcase"
-import { ServicesSection } from "@/components/services-section"
-import { PersonalPhilosophy } from "@/components/personal-philosophy"
-import { TestimonialsCarousel } from "@/components/testimonials-carousel"
+import { SpecializedStudios } from "@/components/specialized-studios"
 import { ContactSection } from "@/components/contact-section"
+import { TelemetryStatusDock } from "@/components/telemetry-status-dock"
 
 export default function HomePage() {
   return (
     <div className="relative min-h-screen bg-[#070B14] text-[#F8FAFC] selection:bg-cyan-500/30 selection:text-cyan-200">
-      {/* 1. Hero Section */}
+      {/* 1. Immersive 3D Hero Section */}
       <HeroMultidisciplinary />
 
-      {/* 2. Personal Introduction / About Me */}
-      <AboutMultidisciplinary />
+      {/* 2. Executive Overview (Verified Benchmarks) */}
+      <ExecutiveOverview />
 
-      {/* 3. Multidisciplinary Expertise (6 Cards) */}
-      <ExpertiseGrid />
+      {/* 3. Four-Pillar Career Switcher */}
+      <CareerSwitcher />
 
-      {/* 4. Skills / Technology Universe */}
-      <TechUniverse />
+      {/* 4. Unified Engineering Operations Center */}
+      <EngineeringOperationsCenter />
 
-      {/* 5. Featured Projects Showcase */}
+      {/* 5. Flagship Systems & Engineering Case Studies */}
       <ProjectsShowcase />
 
-      {/* 6. Data Analytics Lab */}
-      <DataAnalyticsLab />
-
-      {/* 7. Data Science & AI Lab */}
-      <AiLab />
-
-      {/* 8. Full-Stack Software Architecture */}
-      <FullstackArchitecture />
-
-      {/* 9. Salesforce Enterprise Development Studio */}
-      <SalesforceStudio />
-
-      {/* 10. UI/UX Design Studio */}
-      <DesignStudio />
-
-      {/* 11. Photography Gallery (#050505 transition) */}
-      <PhotographyGallery />
-
-      {/* 12. Trajectory & Experience Timeline */}
+      {/* 6. Professional Career Trajectory & Experience Timeline */}
       <ExperienceTimeline />
 
-      {/* 13. Certifications Showcase */}
+      {/* 7. Education, Degrees & Verified Certifications */}
       <CertificationsShowcase />
 
-      {/* 14. Comprehensive Services */}
-      <ServicesSection />
+      {/* 8. Specialized Studios (Salesforce CRM, UI/UX Design, Photography) */}
+      <SpecializedStudios />
 
-      {/* 15. Core Personal Philosophy */}
-      <PersonalPhilosophy />
-
-      {/* 16. Testimonials Carousel */}
-      <TestimonialsCarousel />
-
-      {/* 17. Contact & Collaboration */}
+      {/* 9. Contact & Collaboration */}
       <ContactSection />
+
+      {/* Operational Telemetry Status Dock (Floating Command HUD) */}
+      <TelemetryStatusDock />
     </div>
   )
 }

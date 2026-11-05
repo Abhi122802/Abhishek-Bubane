@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg-grad-str" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#070B14"/>
+      <stop offset="50%" stop-color="#111B30"/>
+      <stop offset="100%" stop-color="#070B14"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="450" fill="url(#bg-grad-str)" rx="16"/>
+  <rect width="800" height="450" fill="none" stroke="#ffffff" stroke-opacity="0.1" stroke-width="1.5" rx="16"/>
+
+  <g transform="translate(30, 36)">
+    <rect width="400" height="26" rx="6" fill="#111B30" stroke="#22D3EE" stroke-opacity="0.3"/>
+    <circle cx="14" cy="13" r="4" fill="#22D3EE"/>
+    <text x="26" y="17" fill="#E0F2FE" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="600" letter-spacing="0.5">STR ANALYTICS PLATFORM • DJRB SERVICES DATA ENGINE</text>
+    <rect x="520" y="0" width="220" height="26" rx="6" fill="#070B14" stroke="#ffffff" stroke-opacity="0.1"/>
+    <text x="532" y="17" fill="#94A3B8" font-family="monospace" font-size="9" letter-spacing="0.5">REPRESENTATIVE ARCHITECTURE</text>
+  </g>
+
+  <!-- Connectors -->
+  <path d="M 190 200 L 260 200" stroke="#22D3EE" stroke-width="2" stroke-dasharray="4,4" opacity="0.8"/>
+  <path d="M 370 200 L 440 200" stroke="#38BDF8" stroke-width="2" stroke-dasharray="4,4" opacity="0.8"/>
+  <path d="M 550 200 L 620 200" stroke="#818CF8" stroke-width="2" stroke-dasharray="4,4" opacity="0.8"/>
+
+  <!-- NODE 1 -->
+  <g transform="translate(50, 120)">
+    <rect width="140" height="170" rx="12" fill="#070B14" fill-opacity="0.9" stroke="#22D3EE" stroke-width="1.5"/>
+    <rect x="0" y="0" width="140" height="34" rx="12" fill="#111B30" stroke="#22D3EE" stroke-opacity="0.3"/>
+    <text x="14" y="22" fill="#E0F2FE" font-family="system-ui, sans-serif" font-size="11" font-weight="bold">1. Raw Collection</text>
+    <text x="14" y="58" fill="#22D3EE" font-family="monospace" font-size="11" font-weight="600">Operational Ingest</text>
+    <text x="14" y="76" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="10">Service Records</text>
+    <text x="14" y="100" fill="#E0F2FE" font-family="system-ui, sans-serif" font-size="10">• Client Files</text>
+    <text x="14" y="118" fill="#E0F2FE" font-family="system-ui, sans-serif" font-size="10">• Booking Logs</text>
+    <text x="14" y="136" fill="#E0F2FE" font-family="system-ui, sans-serif" font-size="10">• Revenue Details</text>
+    <text x="14" y="154" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="9">Structured Normalization</text>
+  </g>
+
+  <!-- NODE 2 -->
+  <g transform="translate(230, 120)">
+    <rect width="140" height="170" rx="12" fill="#070B14" fill-opacity="0.9" stroke="#38BDF8" stroke-width="1.5"/>
+    <rect x="0" y="0" width="140" height="34" rx="12" fill="#111B30" stroke="#38BDF8" stroke-opacity="0.3"/>
+    <text x="14" y="22" fill="#E0F2FE" font-family="system-ui, sans-serif" font-size="11" font-weight="bold">2. SQL Modeling</text>
+    <text x="14" y="58" fill="#38BDF8" font-family="monospace" font-size="11" font-weight="600">PostgreSQL Schemas</text>
+    <text x="14" y="76" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="10">Relational Joins</text>
+    <text x="14" y="100" fill="#E0F2FE" font-family="system-ui, sans-serif" font-size="10">• Optimized Queries</text>
+    <text x="14" y="118" fill="#E0F2FE" font-family="system-ui, sans-serif" font-size="10">• Data Aggregations</text>
+    <text x="14" y="136" fill="#E0F2FE" font-family="system-ui, sans-serif" font-size="10">• Clean Joins</text>
+    <text x="14" y="154" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="9">Normalized Keys</text>
+  </g>
+
+  <!-- NODE 3 -->
+  <g transform="translate(410, 120)">
+    <rect width="140" height="170" rx="12" fill="#070B14" fill-opacity="0.9" stroke="#818CF8" stroke-width="1.5"/>
+    <rect x="0" y="0" width="140" height="34" rx="12" fill="#111B30" stroke="#818CF8" stroke-opacity="0.3"/>
+    <text x="14" y="22" fill="#E0F2FE" font-family="system-ui, sans-serif" font-size="11" font-weight="bold">3. Quality Gates</text>
+    <text x="14" y="58" fill="#818CF8" font-family="monospace" font-size="11" font-weight="600">Validation Rules</text>
+    <text x="14" y="76" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="10">Data Integrity Filters</text>
+    <text x="14" y="100" fill="#E0F2FE" font-family="system-ui, sans-serif" font-size="10">• Missing Value Traps</text>
+    <text x="14" y="118" fill="#E0F2FE" font-family="system-ui, sans-serif" font-size="10">• Type Rule Checks</text>
+    <text x="14" y="136" fill="#E0F2FE" font-family="system-ui, sans-serif" font-size="10">• Outlier Exception</text>
+    <text x="14" y="154" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="9">Zero Leakage Auditing</text>
+  </g>
+
+  <!-- NODE 4 -->
+  <g transform="translate(590, 120)">
+    <rect width="160" height="170" rx="12" fill="#070B14" fill-opacity="0.9" stroke="#E0F2FE" stroke-width="1.5"/>
+    <rect x="0" y="0" width="160" height="34" rx="12" fill="#111B30" stroke="#E0F2FE" stroke-opacity="0.3"/>
+    <text x="14" y="22" fill="#E0F2FE" font-family="system-ui, sans-serif" font-size="11" font-weight="bold">4. Leadership Views</text>
+    <text x="14" y="58" fill="#22D3EE" font-family="monospace" font-size="11" font-weight="600">Executive Views</text>
+    <text x="14" y="76" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="10">KPI Dashboards</text>
+    <text x="14" y="100" fill="#E0F2FE" font-family="system-ui, sans-serif" font-size="10">• Operations Summary</text>
+    <text x="14" y="118" fill="#E0F2FE" font-family="system-ui, sans-serif" font-size="10">• Trend Projections</text>
+    <text x="14" y="136" fill="#E0F2FE" font-family="system-ui, sans-serif" font-size="10">• Performance Matrix</text>
+    <text x="14" y="154" fill="#22D3EE" font-family="system-ui, sans-serif" font-size="9">DJRB Services Analytics</text>
+  </g>
+
+  <g transform="translate(50, 330)">
+    <rect width="700" height="70" rx="10" fill="#111B30" fill-opacity="0.8" stroke="#ffffff" stroke-opacity="0.08"/>
+    <text x="24" y="28" fill="#E0F2FE" font-family="system-ui, sans-serif" font-size="11" font-weight="bold">Operational BI Infrastructure</text>
+    <text x="24" y="48" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="10">End-to-end data pipeline implemented for DJRB Services, cleaning raw service logs and generating structured relational datasets for leadership decision-making.</text>
+  </g>
+</svg>

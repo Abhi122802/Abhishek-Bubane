@@ -68,7 +68,7 @@ export function TestimonialsCarousel() {
   const current = testimonials[currentIndex]
 
   return (
-    <section className="relative py-28 px-4 sm:px-6 lg:px-8 bg-[#0B1020] overflow-hidden border-t border-[#26324A]/60">
+    <section className="relative py-28 px-4 sm:px-6 lg:px-8 bg-[#070B14] overflow-hidden border-t border-white/10">
       {/* Background Glow */}
       <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-96 h-96 bg-purple-600/10 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-10 right-1/4 w-96 h-96 bg-cyan-600/10 rounded-full blur-3xl pointer-events-none" />
@@ -76,21 +76,21 @@ export function TestimonialsCarousel() {
       <div className="max-w-5xl mx-auto relative z-10">
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-400 text-xs font-semibold tracking-wider uppercase mb-3">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-purple-500/10 border border-purple-400/20 text-purple-300 text-xs font-semibold tracking-wider uppercase mb-3 backdrop-blur-md">
             <Sparkles className="w-3.5 h-3.5" />
             Endorsements & Trust
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#E0F2FE] tracking-tight">
             Collaborator Testimonials
           </h2>
-          <p className="mt-4 text-slate-400 text-base sm:text-lg">
+          <p className="mt-4 text-[#94A3B8] text-base sm:text-lg">
             Perspectives from engineering leaders, product founders, and clients who have collaborated across engineering and design disciplines.
           </p>
         </div>
 
         {/* Testimonial Stage */}
         <div 
-          className="relative bg-[#151D32]/90 backdrop-blur-md rounded-3xl border border-[#26324A] p-8 sm:p-12 shadow-2xl overflow-hidden"
+          className="relative bg-[#111B30]/75 backdrop-blur-xl rounded-3xl border border-white/10 hover:border-white/20 p-8 sm:p-12 shadow-2xl overflow-hidden transition-all"
           onMouseEnter={() => setAutoplay(false)}
           onMouseLeave={() => setAutoplay(true)}
         >
@@ -113,11 +113,11 @@ export function TestimonialsCarousel() {
               transition={{ duration: 0.35 }}
               className="space-y-6"
             >
-              <p className="text-lg sm:text-2xl text-slate-200 font-light leading-relaxed italic">
+              <p className="text-lg sm:text-2xl text-[#E0F2FE]/90 font-light leading-relaxed italic">
                 "{current.quote}"
               </p>
 
-              <div className="pt-6 border-t border-[#26324A] flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+              <div className="pt-6 border-t border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                 <div className="flex items-center gap-4">
                   <img
                     src={current.avatar}
@@ -125,8 +125,8 @@ export function TestimonialsCarousel() {
                     className="w-12 h-12 rounded-full object-cover border-2 border-cyan-400/60 shadow-md"
                   />
                   <div>
-                    <h4 className="text-base font-bold text-white">{current.author}</h4>
-                    <p className="text-xs text-cyan-400">{current.role} • <span className="text-slate-400">{current.organization}</span></p>
+                    <h4 className="text-base font-bold text-[#E0F2FE]">{current.author}</h4>
+                    <p className="text-xs text-cyan-400">{current.role} • <span className="text-[#94A3B8]">{current.organization}</span></p>
                   </div>
                 </div>
 
@@ -134,7 +134,7 @@ export function TestimonialsCarousel() {
                   {current.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="text-[10px] font-mono px-2.5 py-1 rounded-md bg-[#0B1020] text-slate-300 border border-[#26324A]"
+                      className="text-[10px] font-mono px-2.5 py-1 rounded-md bg-[#070B14]/80 text-slate-300 border border-white/10"
                     >
                       {tag}
                     </span>
@@ -145,7 +145,7 @@ export function TestimonialsCarousel() {
           </AnimatePresence>
 
           {/* Controls: Prev / Next Buttons */}
-          <div className="flex items-center justify-between mt-8 pt-6 border-t border-[#26324A]/60">
+          <div className="flex items-center justify-between mt-8 pt-6 border-t border-white/10">
             {/* Dots */}
             <div className="flex items-center gap-2">
               {testimonials.map((_, idx) => (
@@ -153,7 +153,7 @@ export function TestimonialsCarousel() {
                   key={idx}
                   onClick={() => setCurrentIndex(idx)}
                   className={`h-2 rounded-full transition-all ${
-                    currentIndex === idx ? "w-8 bg-gradient-to-r from-cyan-400 to-purple-500" : "w-2 bg-[#26324A] hover:bg-slate-500"
+                    currentIndex === idx ? "w-8 bg-gradient-to-r from-cyan-400 to-purple-500" : "w-2 bg-white/20 hover:bg-white/40"
                   }`}
                   aria-label={`Jump to testimonial ${idx + 1}`}
                 />
@@ -163,14 +163,14 @@ export function TestimonialsCarousel() {
             <div className="flex items-center gap-2">
               <button
                 onClick={() => setCurrentIndex((prev) => (prev > 0 ? prev - 1 : testimonials.length - 1))}
-                className="p-2.5 rounded-xl bg-[#0B1020] hover:bg-[#151D32] border border-[#26324A] text-slate-300 hover:text-white transition-colors"
+                className="p-2.5 rounded-xl bg-[#070B14]/80 hover:bg-[#111B30] border border-white/10 text-slate-300 hover:text-[#E0F2FE] transition-colors"
                 aria-label="Previous Testimonial"
               >
                 <ChevronLeft className="w-5 h-5" />
               </button>
               <button
                 onClick={() => setCurrentIndex((prev) => (prev < testimonials.length - 1 ? prev + 1 : 0))}
-                className="p-2.5 rounded-xl bg-[#0B1020] hover:bg-[#151D32] border border-[#26324A] text-slate-300 hover:text-white transition-colors"
+                className="p-2.5 rounded-xl bg-[#070B14]/80 hover:bg-[#111B30] border border-white/10 text-slate-300 hover:text-[#E0F2FE] transition-colors"
                 aria-label="Next Testimonial"
               >
                 <ChevronRight className="w-5 h-5" />

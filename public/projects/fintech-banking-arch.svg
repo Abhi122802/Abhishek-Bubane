@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg-grad-fin" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#070B14"/>
+      <stop offset="50%" stop-color="#111B30"/>
+      <stop offset="100%" stop-color="#070B14"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="450" fill="url(#bg-grad-fin)" rx="16"/>
+  <rect width="800" height="450" fill="none" stroke="#ffffff" stroke-opacity="0.1" stroke-width="1.5" rx="16"/>
+
+  <g transform="translate(30, 36)">
+    <rect width="400" height="26" rx="6" fill="#111B30" stroke="#F472B6" stroke-opacity="0.3"/>
+    <circle cx="14" cy="13" r="4" fill="#F472B6"/>
+    <text x="26" y="17" fill="#E0F2FE" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="600" letter-spacing="0.5">FINTECH MOBILE BANKING • UI/UX DESIGN SYSTEM</text>
+    <rect x="520" y="0" width="220" height="26" rx="6" fill="#070B14" stroke="#ffffff" stroke-opacity="0.1"/>
+    <text x="532" y="17" fill="#94A3B8" font-family="monospace" font-size="9" letter-spacing="0.5">REPRESENTATIVE ARCHITECTURE</text>
+  </g>
+
+  <path d="M 190 200 L 260 200" stroke="#F472B6" stroke-width="2" stroke-dasharray="4,4" opacity="0.8"/>
+  <path d="M 370 200 L 440 200" stroke="#C084FC" stroke-width="2" stroke-dasharray="4,4" opacity="0.8"/>
+  <path d="M 550 200 L 620 200" stroke="#38BDF8" stroke-width="2" stroke-dasharray="4,4" opacity="0.8"/>
+
+  <!-- NODE 1 -->
+  <g transform="translate(50, 120)">
+    <rect width="140" height="170" rx="12" fill="#070B14" fill-opacity="0.9" stroke="#F472B6" stroke-width="1.5"/>
+    <rect x="0" y="0" width="140" height="34" rx="12" fill="#111B30" stroke="#F472B6" stroke-opacity="0.3"/>
+    <text x="14" y="22" fill="#E0F2FE" font-family="system-ui, sans-serif" font-size="11" font-weight="bold">1. User Research</text>
+    <text x="14" y="58" fill="#F472B6" font-family="monospace" font-size="11" font-weight="600">Empathy Mapping</text>
+    <text x="14" y="76" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="10">User Discovery</text>
+    <text x="14" y="100" fill="#E0F2FE" font-family="system-ui, sans-serif" font-size="10">• Friction Audit</text>
+    <text x="14" y="118" fill="#E0F2FE" font-family="system-ui, sans-serif" font-size="10">• Onboarding Flow</text>
+    <text x="14" y="136" fill="#E0F2FE" font-family="system-ui, sans-serif" font-size="10">• Drop-off Analysis</text>
+    <text x="14" y="154" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="9">Heuristic Evaluation</text>
+  </g>
+
+  <!-- NODE 2 -->
+  <g transform="translate(230, 120)">
+    <rect width="140" height="170" rx="12" fill="#070B14" fill-opacity="0.9" stroke="#C084FC" stroke-width="1.5"/>
+    <rect x="0" y="0" width="140" height="34" rx="12" fill="#111B30" stroke="#C084FC" stroke-opacity="0.3"/>
+    <text x="14" y="22" fill="#E0F2FE" font-family="system-ui, sans-serif" font-size="11" font-weight="bold">2. Atomic System</text>
+    <text x="14" y="58" fill="#C084FC" font-family="monospace" font-size="11" font-weight="600">8pt Spatial Grid</text>
+    <text x="14" y="76" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="10">Design Tokens</text>
+    <text x="14" y="100" fill="#E0F2FE" font-family="system-ui, sans-serif" font-size="10">• Color Hierarchy</text>
+    <text x="14" y="118" fill="#E0F2FE" font-family="system-ui, sans-serif" font-size="10">• Accessible Contrast</text>
+    <text x="14" y="136" fill="#E0F2FE" font-family="system-ui, sans-serif" font-size="10">• Input Components</text>
+    <text x="14" y="154" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="9">WCAG AAA Compliance</text>
+  </g>
+
+  <!-- NODE 3 -->
+  <g transform="translate(410, 120)">
+    <rect width="140" height="170" rx="12" fill="#070B14" fill-opacity="0.9" stroke="#38BDF8" stroke-width="1.5"/>
+    <rect x="0" y="0" width="140" height="34" rx="12" fill="#111B30" stroke="#38BDF8" stroke-opacity="0.3"/>
+    <text x="14" y="22" fill="#E0F2FE" font-family="system-ui, sans-serif" font-size="11" font-weight="bold">3. Prototyping</text>
+    <text x="14" y="58" fill="#38BDF8" font-family="monospace" font-size="11" font-weight="600">Interactive Figma</text>
+    <text x="14" y="76" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="10">Screen Flows</text>
+    <text x="14" y="100" fill="#E0F2FE" font-family="system-ui, sans-serif" font-size="10">• Micro-Interactions</text>
+    <text x="14" y="118" fill="#E0F2FE" font-family="system-ui, sans-serif" font-size="10">• Motion Transitions</text>
+    <text x="14" y="136" fill="#E0F2FE" font-family="system-ui, sans-serif" font-size="10">• Balance Cards</text>
+    <text x="14" y="154" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="9">Clickable Prototype</text>
+  </g>
+
+  <!-- NODE 4 -->
+  <g transform="translate(590, 120)">
+    <rect width="160" height="170" rx="12" fill="#070B14" fill-opacity="0.9" stroke="#E0F2FE" stroke-width="1.5"/>
+    <rect x="0" y="0" width="160" height="34" rx="12" fill="#111B30" stroke="#E0F2FE" stroke-opacity="0.3"/>
+    <text x="14" y="22" fill="#E0F2FE" font-family="system-ui, sans-serif" font-size="11" font-weight="bold">4. Usability Review</text>
+    <text x="14" y="58" fill="#F472B6" font-family="monospace" font-size="11" font-weight="600">User Benchmark</text>
+    <text x="14" y="76" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="10">Testing Outcomes</text>
+    <text x="14" y="100" fill="#E0F2FE" font-family="system-ui, sans-serif" font-size="10">• +38% Task Velocity</text>
+    <text x="14" y="118" fill="#E0F2FE" font-family="system-ui, sans-serif" font-size="10">• Zero Misdirected Pay</text>
+    <text x="14" y="136" fill="#E0F2FE" font-family="system-ui, sans-serif" font-size="10">• Seamless Handoff</text>
+    <text x="14" y="154" fill="#F472B6" font-family="system-ui, sans-serif" font-size="9">Figma Prototype Assets</text>
+  </g>
+
+  <g transform="translate(50, 330)">
+    <rect width="700" height="70" rx="10" fill="#111B30" fill-opacity="0.8" stroke="#ffffff" stroke-opacity="0.08"/>
+    <text x="24" y="28" fill="#E0F2FE" font-family="system-ui, sans-serif" font-size="11" font-weight="bold">Human-Centered Product Design</text>
+    <text x="24" y="48" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="10">Structured around cognitive load reduction for complex financial transfers, featuring an 8pt spatial grid system, WCAG AAA accessible contrast, and tactile interactive feedback.</text>
+  </g>
+</svg>

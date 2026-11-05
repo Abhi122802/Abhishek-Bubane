@@ -99,10 +99,10 @@ export function ExpertiseGrid() {
       <div className="container mx-auto max-w-7xl">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#151D32] border border-[#26324A] text-xs font-semibold text-aurora-cyan uppercase tracking-wider">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#111B30]/80 backdrop-blur-md border border-white/10 text-xs font-semibold text-cyan-300 uppercase tracking-wider">
             <Sparkles className="h-3.5 w-3.5" /> Multidisciplinary Core
           </div>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-[#F8FAFC]">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-[#E0F2FE]">
             Six Pillars of <span className="aurora-text-gradient">Technical & Creative Depth</span>
           </h2>
           <p className="text-base sm:text-lg text-[#94A3B8] leading-relaxed">
@@ -121,7 +121,7 @@ export function ExpertiseGrid() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: idx * 0.1 }}
               whileHover={{ y: -6 }}
-              className={`group rounded-2xl p-6 bg-[#0B1020]/90 border border-[#26324A] transition-all duration-300 ${card.borderColor} flex flex-col justify-between relative overflow-hidden`}
+              className={`group rounded-2xl p-6 bg-[#111B30]/75 backdrop-blur-xl border border-white/10 hover:border-white/25 transition-all duration-300 shadow-2xl flex flex-col justify-between relative overflow-hidden`}
               style={{
                 boxShadow: `0 8px 30px -10px ${card.glowColor}`,
               }}
@@ -135,17 +135,17 @@ export function ExpertiseGrid() {
                   <div
                     className={`w-12 h-12 rounded-xl bg-gradient-to-br ${card.accent} p-[1px] shadow-md`}
                   >
-                    <div className="w-full h-full bg-[#0B1020] rounded-[11px] flex items-center justify-center text-[#F8FAFC]">
+                    <div className="w-full h-full bg-[#070B14] rounded-[11px] flex items-center justify-center text-[#E0F2FE]">
                       <card.icon className="h-5 w-5" />
                     </div>
                   </div>
-                  <span className="text-[11px] font-semibold text-[#94A3B8] bg-[#151D32] px-2.5 py-1 rounded-full border border-[#26324A]">
+                  <span className="text-[11px] font-semibold text-[#94A3B8] bg-[#070B14]/80 px-2.5 py-1 rounded-full border border-white/10">
                     {card.badge}
                   </span>
                 </div>
 
                 {/* Title */}
-                <h3 className="text-xl font-bold text-[#F8FAFC] group-hover:text-aurora-cyan transition-colors">
+                <h3 className="text-xl font-bold text-[#E0F2FE] group-hover:text-cyan-300 transition-colors">
                   {card.title}
                 </h3>
 
@@ -157,7 +157,7 @@ export function ExpertiseGrid() {
                   {card.skills.map((skill) => (
                     <span
                       key={skill}
-                      className="text-[11px] font-medium px-2 py-0.5 rounded-md bg-[#151D32] text-[#94A3B8] border border-[#26324A]/60"
+                      className="text-[11px] font-medium px-2 py-0.5 rounded-md bg-[#070B14]/80 text-[#E0F2FE]/80 border border-white/10 backdrop-blur-sm"
                     >
                       {skill}
                     </span>
@@ -166,10 +166,10 @@ export function ExpertiseGrid() {
               </div>
 
               {/* Bottom Explore CTA Link */}
-              <div className="pt-6 border-t border-[#26324A]/70 mt-6 relative z-10">
+              <div className="pt-6 border-t border-white/10 mt-6 relative z-10">
                 <a
                   href={card.anchor}
-                  className="inline-flex items-center text-xs font-semibold text-aurora-cyan group-hover:text-[#F8FAFC] transition-colors"
+                  className="inline-flex items-center text-xs font-semibold text-cyan-300 group-hover:text-[#E0F2FE] transition-colors"
                 >
                   Explore Studio Module
                   <ArrowUpRight className="ml-1.5 h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />

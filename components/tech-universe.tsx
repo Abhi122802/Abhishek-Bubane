@@ -67,11 +67,11 @@ export function TechUniverse() {
       <div className="container mx-auto max-w-7xl">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 space-y-4">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#151D32] border border-[#26324A] text-xs font-semibold text-aurora-cyan uppercase tracking-wider">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-cyan-500/10 border border-cyan-400/20 text-xs font-semibold text-cyan-400 uppercase tracking-wider backdrop-blur-md">
             <Terminal className="h-3.5 w-3.5" /> Technology Ecosystem
           </div>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-[#F8FAFC]">
-            The <span className="aurora-text-gradient">Technology Universe</span>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-[#E0F2FE]">
+            The <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-sky-300 to-violet-400">Technology Universe</span>
           </h2>
           <p className="text-base text-[#94A3B8]">
             Curated tools, frameworks, and platforms spanning analytical calculation, software architecture, and design execution.
@@ -86,8 +86,8 @@ export function TechUniverse() {
               onClick={() => setActiveCategory(cat)}
               className={`px-3.5 py-1.5 rounded-full text-xs font-medium transition-all ${
                 activeCategory === cat
-                  ? "bg-gradient-to-r from-aurora-blue to-aurora-violet text-white shadow-md shadow-aurora-blue/20"
-                  : "bg-[#111827] text-[#94A3B8] border border-[#26324A] hover:text-[#F8FAFC] hover:border-[#38BDF8]/40"
+                  ? "bg-gradient-to-r from-cyan-400 via-sky-400 to-indigo-500 text-slate-950 font-bold shadow-md shadow-cyan-500/20"
+                  : "bg-[#111B30]/75 backdrop-blur-md text-[#94A3B8] border border-white/10 hover:text-[#E0F2FE] hover:border-white/20"
               }`}
             >
               {cat}
@@ -107,13 +107,13 @@ export function TechUniverse() {
                 exit={{ opacity: 0, scale: 0.85 }}
                 transition={{ duration: 0.25 }}
                 whileHover={{ scale: 1.05, y: -2 }}
-                className="group flex items-center gap-2.5 px-4 py-2.5 rounded-xl bg-[#0B1020]/90 border border-[#26324A] hover:border-aurora-cyan/40 hover:bg-[#151D32] transition-all cursor-default shadow-sm"
+                className="group flex items-center gap-2.5 px-4 py-2.5 rounded-xl bg-[#111B30]/75 backdrop-blur-xl border border-white/10 hover:border-white/25 hover:bg-[#111B30] transition-all cursor-default shadow-lg"
               >
                 <span className="text-base">{tech.icon}</span>
-                <span className="text-xs sm:text-sm font-semibold text-[#F8FAFC] group-hover:text-aurora-cyan transition-colors">
+                <span className="text-xs sm:text-sm font-semibold text-[#E0F2FE] group-hover:text-cyan-300 transition-colors">
                   {tech.name}
                 </span>
-                <span className="text-[10px] text-[#94A3B8] font-mono pl-1 border-l border-[#26324A]">
+                <span className="text-[10px] text-[#94A3B8] font-mono pl-1 border-l border-white/10">
                   {tech.level}
                 </span>
               </motion.div>
